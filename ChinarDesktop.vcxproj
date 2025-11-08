@@ -118,12 +118,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AppDbContext.cpp" />
+    <ClCompile Include="Categories.cpp" />
+    <ClCompile Include="EventTypes.cpp" />
+    <ClCompile Include="InventoryService.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="MenuModel.cpp" />
+    <ClCompile Include="MenuProduct.cpp" />
+    <ClCompile Include="OrderService.cpp" />
+    <ClCompile Include="Products.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppDbContext.h" />
+    <ClInclude Include="Categories.h" />
+    <ClInclude Include="EventTypes.h" />
+    <ClInclude Include="InventoryService.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MenuModel.h" />
+    <ClInclude Include="MenuProduct.h" />
+    <ClInclude Include="OrderService.h" />
+    <ClInclude Include="Products.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
