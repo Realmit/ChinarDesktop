@@ -123,8 +123,10 @@
     <ClCompile Include="EventTypes.cpp" />
     <ClCompile Include="InventoryService.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="MenuForm.cpp" />
     <ClCompile Include="MenuModel.cpp" />
     <ClCompile Include="MenuProduct.cpp" />
+    <ClCompile Include="OrderForm.cpp" />
     <ClCompile Include="OrderService.cpp" />
     <ClCompile Include="Products.cpp" />
   </ItemGroup>
@@ -136,14 +138,26 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MenuForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MenuModel.h" />
     <ClInclude Include="MenuProduct.h" />
+    <ClInclude Include="OrderForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="OrderService.h" />
     <ClInclude Include="Products.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderForm.resx">
+      <DependentUpon>OrderForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
