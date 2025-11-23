@@ -58,12 +58,13 @@ namespace ChinarDesktop {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(13, 326);
+			this->button1->Location = System::Drawing::Point(13, 426);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(131, 23);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"назад";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &menu_form::button1_Click);
 			// 
 			// dataGridView1
 			// 
@@ -77,15 +78,24 @@ namespace ChinarDesktop {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(684, 361);
+			this->ClientSize = System::Drawing::Size(684, 461);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->button1);
 			this->Name = L"menu_form";
 			this->Text = L"menu_form";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &menu_form::menu_closing);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void menu_closing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+		e->Cancel = true;
+		this->Hide();
+	}
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Hide();
+	}
 	};
 }

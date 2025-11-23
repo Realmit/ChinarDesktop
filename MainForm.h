@@ -1,5 +1,6 @@
 #pragma once
-
+#include "MenuForm.h"
+#include "OrderForm.h"
 namespace ChinarDesktop {
 
 	using namespace System;
@@ -105,11 +106,19 @@ namespace ChinarDesktop {
 
 		}
 #pragma endregion
+		menu_form^ m_form = gcnew menu_form();
+		order_form^ o_form = gcnew order_form();
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		m_form->Hide();
+		o_form->Hide();
 	}
 	private: System::Void menu_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		m_form->Show();
+		o_form->Hide();
 	}
 	private: System::Void order_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		o_form->Show();
+		m_form->Hide();
 	}
 	};
 }
