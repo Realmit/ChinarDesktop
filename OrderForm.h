@@ -49,6 +49,29 @@ namespace ChinarDesktop {
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ name;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ price;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ total_price;
+	private: System::Windows::Forms::DataGridViewButtonColumn^ remove_button;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ amount;
+	private: System::Windows::Forms::DataGridViewButtonColumn^ add_button;
+	private: System::Windows::Forms::TextBox^ roubles;
+	private: System::Windows::Forms::TextBox^ positions;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label7;
+
+
+
+
+
+
+
+
+
+
+
+
 	protected:
 
 	private:
@@ -66,11 +89,17 @@ namespace ChinarDesktop {
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->total_price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->remove_button = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->amount = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->add_button = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->checkedListBox1 = (gcnew System::Windows::Forms::CheckedListBox());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->checkedListBox1 = (gcnew System::Windows::Forms::CheckedListBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
@@ -79,13 +108,18 @@ namespace ChinarDesktop {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->roubles = (gcnew System::Windows::Forms::TextBox());
+			this->positions = (gcnew System::Windows::Forms::TextBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(13, 426);
+			this->button1->Location = System::Drawing::Point(12, 517);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(138, 23);
 			this->button1->TabIndex = 0;
@@ -95,11 +129,84 @@ namespace ChinarDesktop {
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->AllowUserToAddRows = false;
+			this->dataGridView1->AllowUserToDeleteRows = false;
+			this->dataGridView1->AllowUserToResizeColumns = false;
+			this->dataGridView1->AllowUserToResizeRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+				this->name, this->price,
+					this->total_price, this->remove_button, this->amount, this->add_button
+			});
 			this->dataGridView1->Location = System::Drawing::Point(13, 12);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(639, 275);
+			this->dataGridView1->ScrollBars = System::Windows::Forms::ScrollBars::None;
+			this->dataGridView1->Size = System::Drawing::Size(556, 275);
 			this->dataGridView1->TabIndex = 1;
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &order_form::dataGridView1_CellContentClick);
+			// 
+			// name
+			// 
+			this->name->Frozen = true;
+			this->name->HeaderText = L"Название";
+			this->name->Name = L"name";
+			this->name->ReadOnly = true;
+			// 
+			// price
+			// 
+			this->price->Frozen = true;
+			this->price->HeaderText = L"Цена";
+			this->price->Name = L"price";
+			this->price->ReadOnly = true;
+			// 
+			// total_price
+			// 
+			this->total_price->Frozen = true;
+			this->total_price->HeaderText = L"Цена за все";
+			this->total_price->Name = L"total_price";
+			this->total_price->ReadOnly = true;
+			// 
+			// remove_button
+			// 
+			this->remove_button->Frozen = true;
+			this->remove_button->HeaderText = L"Убрать";
+			this->remove_button->Name = L"remove_button";
+			this->remove_button->ReadOnly = true;
+			this->remove_button->Text = L"--";
+			this->remove_button->UseColumnTextForButtonValue = true;
+			this->remove_button->Width = 66;
+			// 
+			// amount
+			// 
+			this->amount->Frozen = true;
+			this->amount->HeaderText = L"Количество";
+			this->amount->Name = L"amount";
+			this->amount->Width = 80;
+			// 
+			// add_button
+			// 
+			this->add_button->Frozen = true;
+			this->add_button->HeaderText = L"Добавить";
+			this->add_button->Name = L"add_button";
+			this->add_button->ReadOnly = true;
+			this->add_button->Text = L"-|-";
+			this->add_button->UseColumnTextForButtonValue = true;
+			this->add_button->Width = 66;
+			// 
+			// checkedListBox1
+			// 
+			this->checkedListBox1->CheckOnClick = true;
+			this->checkedListBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->checkedListBox1->FormattingEnabled = true;
+			this->checkedListBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"Фотобудка", L"Фотозона", L"Воздушные шары",
+					L"Миньоны"
+			});
+			this->checkedListBox1->Location = System::Drawing::Point(12, 414);
+			this->checkedListBox1->Name = L"checkedListBox1";
+			this->checkedListBox1->Size = System::Drawing::Size(151, 80);
+			this->checkedListBox1->TabIndex = 6;
 			// 
 			// dateTimePicker1
 			// 
@@ -141,21 +248,6 @@ namespace ChinarDesktop {
 			this->numericUpDown1->TabIndex = 5;
 			this->numericUpDown1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->numericUpDown1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
-			// 
-			// checkedListBox1
-			// 
-			this->checkedListBox1->CheckOnClick = true;
-			this->checkedListBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->checkedListBox1->FormattingEnabled = true;
-			this->checkedListBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
-				L"Фотобудка", L"Фотозона", L"Воздушные шары",
-					L"Миньоны"
-			});
-			this->checkedListBox1->Location = System::Drawing::Point(501, 297);
-			this->checkedListBox1->Name = L"checkedListBox1";
-			this->checkedListBox1->Size = System::Drawing::Size(151, 80);
-			this->checkedListBox1->TabIndex = 6;
 			// 
 			// label3
 			// 
@@ -222,7 +314,7 @@ namespace ChinarDesktop {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(501, 426);
+			this->button2->Location = System::Drawing::Point(418, 517);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(151, 23);
 			this->button2->TabIndex = 13;
@@ -231,19 +323,68 @@ namespace ChinarDesktop {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(356, 426);
+			this->button3->Location = System::Drawing::Point(273, 517);
 			this->button3->Name = L"button3";
 			this->button3->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->button3->Size = System::Drawing::Size(139, 23);
 			this->button3->TabIndex = 14;
 			this->button3->Text = L"сбросить заказ";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &order_form::button3_Click);
+			// 
+			// roubles
+			// 
+			this->roubles->Enabled = false;
+			this->roubles->Location = System::Drawing::Point(408, 474);
+			this->roubles->Name = L"roubles";
+			this->roubles->Size = System::Drawing::Size(100, 20);
+			this->roubles->TabIndex = 15;
+			// 
+			// positions
+			// 
+			this->positions->Enabled = false;
+			this->positions->Location = System::Drawing::Point(408, 448);
+			this->positions->Name = L"positions";
+			this->positions->Size = System::Drawing::Size(100, 20);
+			this->positions->TabIndex = 16;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(408, 429);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(56, 13);
+			this->label5->TabIndex = 17;
+			this->label5->Text = L"В заказе:";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(515, 454);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(51, 13);
+			this->label6->TabIndex = 18;
+			this->label6->Text = L"Позиций";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(515, 480);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(43, 13);
+			this->label7->TabIndex = 19;
+			this->label7->Text = L"Рублей";
 			// 
 			// order_form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(684, 461);
+			this->ClientSize = System::Drawing::Size(578, 552);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->positions);
+			this->Controls->Add(this->roubles);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->textBox2);
@@ -277,6 +418,36 @@ namespace ChinarDesktop {
 private: System::Void order_form_Load(System::Object^ sender, System::EventArgs^ e) {
 	this->comboBox1->SelectedIndex = 0;
 	this->comboBox2->SelectedIndex = 0;
+
+	positions->Text = L"0";
+	roubles->Text = L"0";
+
+	this->dataGridView1->Rows->Add();
+	this->dataGridView1->Rows->Add();
+	this->dataGridView1->Rows->Add();
+	this->dataGridView1->Rows->Add();
+
+	this->dataGridView1->Rows[0]->Cells["name"]->Value = L"Бургер";
+	this->dataGridView1->Rows[1]->Cells["name"]->Value = L"Пицца";
+	this->dataGridView1->Rows[2]->Cells["name"]->Value = L"Салат";
+	this->dataGridView1->Rows[3]->Cells["name"]->Value = L"Бабл милк";
+
+	this->dataGridView1->Rows[0]->Cells["price"]->Value = 245;
+	this->dataGridView1->Rows[1]->Cells["price"]->Value = 759;
+	this->dataGridView1->Rows[2]->Cells["price"]->Value = 169;
+	this->dataGridView1->Rows[3]->Cells["price"]->Value = 259;
+
+	this->dataGridView1->Rows[0]->Cells["total_price"]->Value = 0;
+	this->dataGridView1->Rows[1]->Cells["total_price"]->Value = 0;
+	this->dataGridView1->Rows[2]->Cells["total_price"]->Value = 0;
+	this->dataGridView1->Rows[3]->Cells["total_price"]->Value = 0;
+
+	this->dataGridView1->Rows[0]->Cells["amount"]->Value = 0;
+	this->dataGridView1->Rows[1]->Cells["amount"]->Value = 0;
+	this->dataGridView1->Rows[2]->Cells["amount"]->Value = 0;
+	this->dataGridView1->Rows[3]->Cells["amount"]->Value = 0;
+	this->dataGridView1->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &order_form::dataGridView1_CellValueChanged);
+
 }
 
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -293,6 +464,52 @@ private: System::Void comboBox2_SelectedIndexChanged(System::Object^ sender, Sys
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Hide();
+}
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	if (e->ColumnIndex == 3) {
+		if (Convert::ToDouble(dataGridView1->Rows[e->RowIndex]->Cells["amount"]->Value) > 0) {
+			dataGridView1->Rows[e->RowIndex]->Cells["amount"]->Value = Convert::ToDouble(dataGridView1->Rows[e->RowIndex]->Cells["amount"]->Value) - 1;
+		}
+	}
+
+	if (e->ColumnIndex == 5) {
+		dataGridView1->Rows[e->RowIndex]->Cells["amount"]->Value = Convert::ToDouble(dataGridView1->Rows[e->RowIndex]->Cells["amount"]->Value) + 1;
+	}
+}
+
+private: System::Void dataGridView1_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		dataGridView1->Rows[e->RowIndex]->Cells["total_price"]->Value = Convert::ToDouble(dataGridView1->Rows[e->RowIndex]->Cells["amount"]->Value) * Convert::ToDouble(dataGridView1->Rows[e->RowIndex]->Cells["price"]->Value);
+		int i, all_price, all_amount;
+		all_price = 0;
+		all_amount = 0;
+		for (i = 0; i < 4; i++) {
+			if (Convert::ToDouble(dataGridView1->Rows[i]->Cells["total_price"]->Value)) {
+				all_price += Convert::ToDouble(dataGridView1->Rows[i]->Cells["total_price"]->Value);
+				all_amount += Convert::ToDouble(dataGridView1->Rows[i]->Cells["amount"]->Value);
+			}
+		}
+		positions->Text = Convert::ToString(all_amount);
+		roubles->Text = Convert::ToString(all_price);
+	
+
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	this->comboBox1->SelectedIndex = 0;
+	this->comboBox2->SelectedIndex = 0;
+
+	this->numericUpDown1->Value = 10;
+
+	this->checkedListBox1->SetItemChecked(0, false);
+	this->checkedListBox1->SetItemChecked(1, false);
+	this->checkedListBox1->SetItemChecked(2, false);
+	this->checkedListBox1->SetItemChecked(3, false);
+
+	int i;
+	for (i = 0; i < 4; i++) {
+		dataGridView1->Rows[i]->Cells["amount"]->Value = 0;
+	}
+
 }
 };
 }
