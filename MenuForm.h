@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include "MenuLoader.h"
+#include <vector>
 
 namespace ChinarDesktop {
 
@@ -34,6 +36,7 @@ namespace ChinarDesktop {
 				delete components;
 			}
 		}
+	private:std::vector<MenuLoader::Dish>* menu;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::DataGridView^ dataGrid;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ name;
@@ -56,35 +59,6 @@ namespace ChinarDesktop {
 	private: System::Windows::Forms::TextBox^ fats_box;
 	private: System::Windows::Forms::TextBox^ carbs_box;
 	private: System::Windows::Forms::Label^ price_label;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	protected:
 
 	private:
@@ -145,7 +119,7 @@ namespace ChinarDesktop {
 			});
 			this->dataGrid->Location = System::Drawing::Point(12, 12);
 			this->dataGrid->Name = L"dataGrid";
-			this->dataGrid->ScrollBars = System::Windows::Forms::ScrollBars::None;
+			this->dataGrid->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->dataGrid->Size = System::Drawing::Size(565, 275);
 			this->dataGrid->TabIndex = 3;
 			this->dataGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &menu_form::dataGrid_CellContentClick);
@@ -371,24 +345,35 @@ namespace ChinarDesktop {
 		this->price_label->Visible = false;
 	}
 	private: System::Void menu_form_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->dataGrid->Rows->Add();
-		this->dataGrid->Rows->Add();
-		this->dataGrid->Rows->Add();
-		this->dataGrid->Rows->Add();
+		
+		menu = new std::vector<MenuLoader::Dish>(
+			MenuLoader::LoadFile("menu.txt"));
 
-		this->dataGrid->Rows[0]->Cells["name"]->Value = L"Бургер";
-		this->dataGrid->Rows[1]->Cells["name"]->Value = L"Пицца";
-		this->dataGrid->Rows[2]->Cells["name"]->Value = L"Салат";
-		this->dataGrid->Rows[3]->Cells["name"]->Value = L"Бабл милк";
+		this->dataGrid->Rows->Clear();
 
-		this->dataGrid->Rows[0]->Cells["price"]->Value = 245;
-		this->dataGrid->Rows[1]->Cells["price"]->Value = 759;
-		this->dataGrid->Rows[2]->Cells["price"]->Value = 169;
-		this->dataGrid->Rows[3]->Cells["price"]->Value = 259;
+		for (auto& dish : *menu)
+		{
+			int row = this->dataGrid->Rows->Add();
+
+			this->dataGrid->Rows[row]->Cells["name"]->Value =
+				gcnew System::String(dish.name.c_str());
+
+			this->dataGrid->Rows[row]->Cells["price"]->Value =
+				dish.price;
+
+			this->dataGrid->Rows[row]->Tag = System::IntPtr(&dish);
+		}
 
 	}
-private: System::Void dataGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	if (e->ColumnIndex == 2) {
+	private: System::Void dataGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		if (e->ColumnIndex != 2 || e->RowIndex < 0)
+			return;
+
+		System::IntPtr ptr = safe_cast<System::IntPtr>(this->dataGrid->Rows[e->RowIndex]->Tag);
+		MenuLoader::Dish* dish = static_cast<MenuLoader::Dish*>(ptr.ToPointer());
+
+		const auto& d = *dish;
+
 		this->carbs_box->Visible = true;
 		this->fats_box->Visible = true;
 		this->proteins_box->Visible = true;
@@ -404,51 +389,16 @@ private: System::Void dataGrid_CellContentClick(System::Object^ sender, System::
 		this->food_name->Visible = true;
 		this->price_label->Visible = true;
 
-		switch (e->RowIndex) {
-		case 0:
-			this->food_name->Text = L"Бургер";
-			this->price_label->Text = L"245 рублей";
-			this->description_box->Text = L"Сочная котлета в мягкой булочке с хрустящими овощами и любимым соусом. Идеальный выбор для тех, кто любит сытно и вкусно поесть.";
-			this->mass_box->Text = L"220";
-			this->calories_box->Text = L"538";
-			this->proteins_box->Text = L"27.0";
-			this->fats_box->Text = L"53.0";
-			this->carbs_box->Text = L"21.0";
-			break;
-		case 1:
-			this->food_name->Text = L"Пицца";
-			this->price_label->Text = L"759 рублей";
-			this->description_box->Text = L"Ароматная основа, щедро покрытая томатным соусом, сыром и свежими ингредиентами на ваш выбор. Насладитесь классикой или откройте новые вкусовые сочетания.";
-			this->mass_box->Text = L"980";
-			this->calories_box->Text = L"258";
-			this->proteins_box->Text = L"10.2";
-			this->fats_box->Text = L"8.6";
-			this->carbs_box->Text = L"35.1";
-			break;
-		case 2:
-			this->food_name->Text = L"Салат";
-			this->price_label->Text = L"169 рублей";
-			this->description_box->Text = L"Легкая и освежающая смесь свежих овощей, зелени и питательных добавок. Прекрасно подойдет как самостоятельное блюдо или как дополнение к основному.";
-			this->mass_box->Text = L"210";
-			this->calories_box->Text = L"186";
-			this->proteins_box->Text = L"11.0";
-			this->fats_box->Text = L"9.7";
-			this->carbs_box->Text = L"13.0";
-			break;
-		case 3:
-			this->food_name->Text = L"Бабл Милк Банан-Карамель";
-			this->price_label->Text = L"259 рублей";
-			this->description_box->Text = L"Нежный молочный коктейль с ярким вкусом спелого банана и сладкой карамели. Добавьте в свой день немного сладкого удовольствия с лопающимися шариками.";
-			this->mass_box->Text = L"500";
-			this->calories_box->Text = L"288";
-			this->proteins_box->Text = L"7.8";
-			this->fats_box->Text = L"8.2";
-			this->carbs_box->Text = L"46.0";
-			break;
-		default:
-			break;
+		this->food_name->Text = gcnew System::String(d.name.c_str());
+		this->description_box->Text = gcnew System::String(d.long_desc.c_str());
+		this->price_label->Text =
+			gcnew System::String((std::to_string((int)d.price) + " рублей").c_str());
+
+		this->mass_box->Text = d.weight.ToString();
+		this->calories_box->Text = d.calories.ToString();
+		this->proteins_box->Text = d.protein.ToString();
+		this->fats_box->Text = d.fat.ToString();
+		this->carbs_box->Text = d.carbs.ToString();
 		}
-	}
-}
-};
+	};
 }

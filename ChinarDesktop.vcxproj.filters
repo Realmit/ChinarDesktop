@@ -99,6 +99,9 @@
     <ClCompile Include="OrderForm.cpp">
       <Filter>UiForms</Filter>
     </ClCompile>
+    <ClCompile Include="MenuLoader.cpp">
+      <Filter>UiForms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainForm.h">
@@ -134,5 +137,13 @@
     <ClInclude Include="OrderForm.h">
       <Filter>UiForms</Filter>
     </ClInclude>
+    <ClInclude Include="MenuLoader.h">
+      <Filter>UiForms</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Menu.txt">
+      <Filter>DataAccess\CSV files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

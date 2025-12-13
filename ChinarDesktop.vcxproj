@@ -124,6 +124,7 @@
     <ClCompile Include="InventoryService.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="MenuForm.cpp" />
+    <ClCompile Include="MenuLoader.cpp" />
     <ClCompile Include="MenuModel.cpp" />
     <ClCompile Include="MenuProduct.cpp" />
     <ClCompile Include="OrderForm.cpp" />
@@ -141,6 +142,7 @@
     <ClInclude Include="MenuForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MenuLoader.h" />
     <ClInclude Include="MenuModel.h" />
     <ClInclude Include="MenuProduct.h" />
     <ClInclude Include="OrderForm.h">
@@ -159,6 +161,9 @@
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Menu.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
