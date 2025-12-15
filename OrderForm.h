@@ -1,8 +1,12 @@
 #pragma once
+#include "MenuLoader.h"
+#include <vector>
 
 namespace ChinarDesktop {
 
 	using namespace System;
+	using namespace System::IO;
+	using namespace System::Text;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;
@@ -34,37 +38,23 @@ namespace ChinarDesktop {
 				delete components;
 			}
 		}
+	private:std::vector<MenuLoader::Dish>* menu;
 	private: System::Windows::Forms::Button^ return_button;
 	private: System::Windows::Forms::DataGridView^ dataGrid;
 	protected:
-
-
 	private: System::Windows::Forms::DateTimePicker^ date_select;
 	private: System::Windows::Forms::Label^ date_label;
 	private: System::Windows::Forms::Label^ people_count_label;
-
-
-
 	private: System::Windows::Forms::NumericUpDown^ people_count;
 	private: System::Windows::Forms::CheckedListBox^ extras;
 	private: System::Windows::Forms::Label^ occasion_label;
 	private: System::Windows::Forms::Label^ tables_label;
-
-
-
-
 	private: System::Windows::Forms::ComboBox^ occasion;
 	private: System::Windows::Forms::ComboBox^ tables;
-
-
 	private: System::Windows::Forms::TextBox^ custom_occasion;
 	private: System::Windows::Forms::TextBox^ custom_tables;
 	private: System::Windows::Forms::Button^ order_button;
-
-
-
 	private: System::Windows::Forms::Button^ reset_button;
-
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ name;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ price;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ total_price;
@@ -83,27 +73,11 @@ namespace ChinarDesktop {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::CheckBox^ custom_occasion_checkbox;
-	private: System::Windows::Forms::CheckBox^ custom_table_checkbox;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	private: System::Windows::Forms::TextBox^ textBox_number;
+	private: System::Windows::Forms::Label^ tel_numb;
 
 
 	protected:
-
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -150,8 +124,8 @@ namespace ChinarDesktop {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->custom_occasion_checkbox = (gcnew System::Windows::Forms::CheckBox());
-			this->custom_table_checkbox = (gcnew System::Windows::Forms::CheckBox());
+			this->textBox_number = (gcnew System::Windows::Forms::TextBox());
+			this->tel_numb = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->people_count))->BeginInit();
 			this->SuspendLayout();
@@ -179,7 +153,7 @@ namespace ChinarDesktop {
 			});
 			this->dataGrid->Location = System::Drawing::Point(13, 12);
 			this->dataGrid->Name = L"dataGrid";
-			this->dataGrid->ScrollBars = System::Windows::Forms::ScrollBars::None;
+			this->dataGrid->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->dataGrid->Size = System::Drawing::Size(556, 275);
 			this->dataGrid->TabIndex = 1;
 			this->dataGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &order_form::dataGrid_CellContentClick);
@@ -239,10 +213,11 @@ namespace ChinarDesktop {
 				static_cast<System::Byte>(204)));
 			this->extras->FormattingEnabled = true;
 			this->extras->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Фотобудка", L"Фотозона", L"Воздушные шары", L"Миньоны" });
-			this->extras->Location = System::Drawing::Point(240, 420);
+			this->extras->Location = System::Drawing::Point(219, 424);
 			this->extras->Name = L"extras";
 			this->extras->Size = System::Drawing::Size(151, 80);
 			this->extras->TabIndex = 6;
+			this->extras->SelectedIndexChanged += gcnew System::EventHandler(this, &order_form::extras_SelectedIndexChanged);
 			// 
 			// date_select
 			// 
@@ -356,6 +331,7 @@ namespace ChinarDesktop {
 			this->order_button->TabIndex = 13;
 			this->order_button->Text = L"сделать заказ";
 			this->order_button->UseVisualStyleBackColor = true;
+			this->order_button->Click += gcnew System::EventHandler(this, &order_form::order_button_Click);
 			// 
 			// reset_button
 			// 
@@ -383,6 +359,7 @@ namespace ChinarDesktop {
 			this->positions->Name = L"positions";
 			this->positions->Size = System::Drawing::Size(100, 20);
 			this->positions->TabIndex = 16;
+			this->positions->TextChanged += gcnew System::EventHandler(this, &order_form::positions_TextChanged);
 			// 
 			// in_order_label
 			// 
@@ -470,47 +447,44 @@ namespace ChinarDesktop {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(237, 401);
+			this->label4->Location = System::Drawing::Point(216, 405);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(134, 13);
 			this->label4->TabIndex = 22;
 			this->label4->Text = L"Дополнительные услуги:";
 			this->label4->Click += gcnew System::EventHandler(this, &order_form::label4_Click);
 			// 
-			// custom_occasion_checkbox
+			// textBox_number
 			// 
-			this->custom_occasion_checkbox->AutoSize = true;
-			this->custom_occasion_checkbox->Location = System::Drawing::Point(177, 406);
-			this->custom_occasion_checkbox->Name = L"custom_occasion_checkbox";
-			this->custom_occasion_checkbox->Size = System::Drawing::Size(50, 17);
-			this->custom_occasion_checkbox->TabIndex = 24;
-			this->custom_occasion_checkbox->Text = L"свое";
-			this->custom_occasion_checkbox->UseVisualStyleBackColor = true;
+			this->textBox_number->Location = System::Drawing::Point(219, 379);
+			this->textBox_number->Name = L"textBox_number";
+			this->textBox_number->Size = System::Drawing::Size(151, 20);
+			this->textBox_number->TabIndex = 23;
 			// 
-			// custom_table_checkbox
+			// tel_numb
 			// 
-			this->custom_table_checkbox->AutoSize = true;
-			this->custom_table_checkbox->Location = System::Drawing::Point(177, 487);
-			this->custom_table_checkbox->Name = L"custom_table_checkbox";
-			this->custom_table_checkbox->Size = System::Drawing::Size(50, 17);
-			this->custom_table_checkbox->TabIndex = 24;
-			this->custom_table_checkbox->Text = L"свое";
-			this->custom_table_checkbox->UseVisualStyleBackColor = true;
-			this->custom_table_checkbox->CheckedChanged += gcnew System::EventHandler(this, &order_form::checkBox1_CheckedChanged);
+			this->tel_numb->AutoSize = true;
+			this->tel_numb->Cursor = System::Windows::Forms::Cursors::SizeAll;
+			this->tel_numb->Location = System::Drawing::Point(216, 360);
+			this->tel_numb->Name = L"tel_numb";
+			this->tel_numb->Size = System::Drawing::Size(96, 13);
+			this->tel_numb->TabIndex = 20;
+			this->tel_numb->Text = L"Номер телефона:";
+			this->tel_numb->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
 			// 
 			// order_form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(578, 552);
-			this->Controls->Add(this->custom_table_checkbox);
-			this->Controls->Add(this->custom_occasion_checkbox);
+			this->Controls->Add(this->textBox_number);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
+			this->Controls->Add(this->tel_numb);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->roubles_label);
 			this->Controls->Add(this->pos_label);
@@ -532,9 +506,11 @@ namespace ChinarDesktop {
 			this->Controls->Add(this->date_select);
 			this->Controls->Add(this->dataGrid);
 			this->Controls->Add(this->return_button);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"order_form";
 			this->Text = L"order_form";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &order_form::order_closing);
+			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &order_form::order_form_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &order_form::order_form_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->people_count))->EndInit();
@@ -548,38 +524,42 @@ namespace ChinarDesktop {
 		this->Hide();
 	}
 private: System::Void order_form_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->occasion->SelectedIndex = 0;
-	this->tables->SelectedIndex = 0;
+	occasion->SelectedIndex = 0;
+	tables->SelectedIndex = 0;
+	positions->Text = "0";
+	roubles->Text = "0";
 
-	positions->Text = L"0";
-	roubles->Text = L"0";
+	if (menu != nullptr)
+	{
+		delete menu;
+		menu = nullptr;
+	}
 
-	this->dataGrid->Rows->Add();
-	this->dataGrid->Rows->Add();
-	this->dataGrid->Rows->Add();
-	this->dataGrid->Rows->Add();
+	menu = new std::vector<MenuLoader::Dish>(
+		MenuLoader::LoadFile("menu.txt"));
 
-	this->dataGrid->Rows[0]->Cells["name"]->Value = L"Бургер";
-	this->dataGrid->Rows[1]->Cells["name"]->Value = L"Пицца";
-	this->dataGrid->Rows[2]->Cells["name"]->Value = L"Салат";
-	this->dataGrid->Rows[3]->Cells["name"]->Value = L"Бабл милк";
+	dataGrid->Rows->Clear();
 
-	this->dataGrid->Rows[0]->Cells["price"]->Value = 245;
-	this->dataGrid->Rows[1]->Cells["price"]->Value = 759;
-	this->dataGrid->Rows[2]->Cells["price"]->Value = 169;
-	this->dataGrid->Rows[3]->Cells["price"]->Value = 259;
+	for (size_t i = 0; i < menu->size(); i++)
+	{
+		MenuLoader::Dish& dish = (*menu)[i];
 
-	this->dataGrid->Rows[0]->Cells["total_price"]->Value = 0;
-	this->dataGrid->Rows[1]->Cells["total_price"]->Value = 0;
-	this->dataGrid->Rows[2]->Cells["total_price"]->Value = 0;
-	this->dataGrid->Rows[3]->Cells["total_price"]->Value = 0;
+		int row = dataGrid->Rows->Add();
 
-	this->dataGrid->Rows[0]->Cells["amount"]->Value = 0;
-	this->dataGrid->Rows[1]->Cells["amount"]->Value = 0;
-	this->dataGrid->Rows[2]->Cells["amount"]->Value = 0;
-	this->dataGrid->Rows[3]->Cells["amount"]->Value = 0;
-	this->dataGrid->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &order_form::dataGrid_CellValueChanged);
+		dataGrid->Rows[row]->Cells["name"]->Value =
+			gcnew System::String(dish.name.c_str());
 
+		dataGrid->Rows[row]->Cells["price"]->Value = dish.price;
+
+		dataGrid->Rows[row]->Cells["amount"]->Value = 0;
+		dataGrid->Rows[row]->Cells["total_price"]->Value = 0;
+
+		dataGrid->Rows[row]->Tag = dish.id;
+	}
+
+	dataGrid->CellValueChanged +=
+		gcnew System::Windows::Forms::DataGridViewCellEventHandler(
+			this, &order_form::dataGrid_CellValueChanged);
 }
 
 private: System::Void occasion_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -598,49 +578,89 @@ private: System::Void return_button_Click(System::Object^ sender, System::EventA
 	this->Hide();
 }
 private: System::Void dataGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	if (e->ColumnIndex == 3) {
-		if (Convert::ToDouble(dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value) > 0) {
-			dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value = Convert::ToDouble(dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value) - 1;
+	if (e->RowIndex < 0) return;
+
+	if (e->ColumnIndex == 3)
+	{
+		int amount = Convert::ToInt32(
+			dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value);
+
+		if (amount > 0)
+		{
+			dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value = amount - 1;
 		}
 	}
 
-	if (e->ColumnIndex == 5) {
-		dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value = Convert::ToDouble(dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value) + 1;
+	if (e->ColumnIndex == 5)
+	{
+		int amount = Convert::ToInt32(
+			dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value);
+
+		dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value = amount + 1;
 	}
+
+	dataGrid->NotifyCurrentCellDirty(true);
 }
 
 private: System::Void dataGrid_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		dataGrid->Rows[e->RowIndex]->Cells["total_price"]->Value = Convert::ToDouble(dataGrid->Rows[e->RowIndex]->Cells["amount"]->Value) * Convert::ToDouble(dataGrid->Rows[e->RowIndex]->Cells["price"]->Value);
-		int i, all_price, all_amount;
-		all_price = 0;
-		all_amount = 0;
-		for (i = 0; i < 4; i++) {
-			if (Convert::ToDouble(dataGrid->Rows[i]->Cells["total_price"]->Value)) {
-				all_price += Convert::ToDouble(dataGrid->Rows[i]->Cells["total_price"]->Value);
-				all_amount += Convert::ToDouble(dataGrid->Rows[i]->Cells["amount"]->Value);
-			}
-		}
-		positions->Text = Convert::ToString(all_amount);
-		roubles->Text = Convert::ToString(all_price);
-	
+	if (e->RowIndex < 0) return;
 
+	auto row = dataGrid->Rows[e->RowIndex];
+
+	if (row->Cells["amount"]->Value == nullptr) return;
+
+	int amount = Convert::ToInt32(row->Cells["amount"]->Value);
+	double price = Convert::ToDouble(row->Cells["price"]->Value);
+
+	row->Cells["total_price"]->Value = amount * price;
+
+	int totalAmount = 0;
+	double totalPrice = 0.0;
+
+	for (int i = 0; i < dataGrid->Rows->Count; i++)
+	{
+		int a = Convert::ToInt32(
+			dataGrid->Rows[i]->Cells["amount"]->Value);
+
+		double p = Convert::ToDouble(
+			dataGrid->Rows[i]->Cells["total_price"]->Value);
+
+		if (a > 0)
+		{
+			totalAmount += a;
+			totalPrice += p;
+		}
+	}
+
+	positions->Text = totalAmount.ToString();
+	roubles->Text = totalPrice.ToString("F2");
 }
 private: System::Void reset_button_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	this->occasion->SelectedIndex = 0;
-	this->tables->SelectedIndex = 0;
+	occasion->SelectedIndex = 0;
+	tables->SelectedIndex = 0;
 
-	this->people_count->Value = 10;
+	people_count->Value = 10;
 
-	this->extras->SetItemChecked(0, false);
-	this->extras->SetItemChecked(1, false);
-	this->extras->SetItemChecked(2, false);
-	this->extras->SetItemChecked(3, false);
+	for (int i = 0; i < extras->Items->Count; i++)
+		extras->SetItemChecked(i, false);
 
-	int i;
-	for (i = 0; i < 4; i++) {
+	for (int i = 0; i < dataGrid->Rows->Count; i++)
+	{
 		dataGrid->Rows[i]->Cells["amount"]->Value = 0;
+		dataGrid->Rows[i]->Cells["total_price"]->Value = 0;
 	}
+
+	positions->Text = "0";
+	roubles->Text = "0";
+
+	textBox1->Text = "";
+	textBox2->Text = "";
+	textBox3->Text = "";
+	textBox_number->Text = ""; 
+
+	custom_occasion->Visible = false;
+	custom_tables->Visible = false;
 
 }
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -650,6 +670,85 @@ private: System::Void pos_label_Click(System::Object^ sender, System::EventArgs^
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void order_button_Click(System::Object^ sender, System::EventArgs^ e) {
+	try
+	{
+		StreamWriter^ sw =
+			gcnew StreamWriter("Occasions.txt", true, Encoding::UTF8);
+
+		sw->Write(textBox1->Text + " " +
+			textBox2->Text + " " +
+			textBox3->Text + "|");
+
+		sw->Write(textBox_number->Text + "|");
+
+		sw->Write("UNKNOWN|");
+
+		DateTime d = date_select->Value;
+		sw->Write(d.Year + "," + d.Month + "," + d.Day + "|");
+
+		sw->Write(
+			(custom_occasion->Visible ?
+				custom_occasion->Text :
+				occasion->Text) + "|");
+
+		sw->Write(
+			(custom_tables->Visible ?
+				custom_tables->Text :
+				tables->Text) + "|");
+
+		for each (String ^ s in extras->CheckedItems)
+			sw->Write(s + " ");
+		sw->Write("|");
+
+		int totalAmount = 0;
+		double totalPrice = 0.0;
+
+		for (int i = 0; i < dataGrid->Rows->Count; i++)
+		{
+			int amount = Convert::ToInt32(
+				dataGrid->Rows[i]->Cells["amount"]->Value);
+
+			if (amount > 0)
+			{
+				int id = safe_cast<int>(dataGrid->Rows[i]->Tag);
+
+				double rowPrice = Convert::ToDouble(
+					dataGrid->Rows[i]->Cells["total_price"]->Value);
+
+				sw->Write(id + "|" + amount + "|" + rowPrice + "|");
+
+				totalAmount += amount;
+				totalPrice += rowPrice;
+			}
+		}
+
+		sw->WriteLine(totalAmount + "|" + totalPrice);
+		sw->Close();
+
+		MessageBox::Show("Заказ успешно сохранён!", "Успех", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		reset_button_Click(sender, e);
+	}
+	catch (Exception^ ex)
+	{
+		MessageBox::Show("Ошибка при сохранении заказа:\n" + ex->Message,
+			"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+}
+private: System::Void extras_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void positions_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void order_form_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
+	this->Hide();
+
+	if (menu != nullptr)
+	{
+		delete menu;
+		menu = nullptr;
+	}
 }
 };
 }

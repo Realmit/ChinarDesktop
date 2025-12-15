@@ -312,6 +312,7 @@ namespace ChinarDesktop {
 			this->Controls->Add(this->food_name);
 			this->Controls->Add(this->dataGrid);
 			this->Controls->Add(this->button1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"menu_form";
 			this->Text = L"menu_form";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &menu_form::menu_closing);
