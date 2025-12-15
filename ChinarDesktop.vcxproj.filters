@@ -145,5 +145,8 @@
     <Text Include="Menu.txt">
       <Filter>DataAccess\CSV files</Filter>
     </Text>
+    <Text Include="Occasions.txt">
+      <Filter>DataAccess\CSV files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

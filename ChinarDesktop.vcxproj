@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Menu.txt" />
+    <Text Include="Occasions.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

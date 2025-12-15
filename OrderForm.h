@@ -76,6 +76,17 @@ namespace ChinarDesktop {
 	private: System::Windows::Forms::Label^ in_order_label;
 	private: System::Windows::Forms::Label^ pos_label;
 	private: System::Windows::Forms::Label^ roubles_label;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::CheckBox^ custom_occasion_checkbox;
+	private: System::Windows::Forms::CheckBox^ custom_table_checkbox;
+
+
 
 
 
@@ -132,6 +143,15 @@ namespace ChinarDesktop {
 			this->in_order_label = (gcnew System::Windows::Forms::Label());
 			this->pos_label = (gcnew System::Windows::Forms::Label());
 			this->roubles_label = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->custom_occasion_checkbox = (gcnew System::Windows::Forms::CheckBox());
+			this->custom_table_checkbox = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->people_count))->BeginInit();
 			this->SuspendLayout();
@@ -219,7 +239,7 @@ namespace ChinarDesktop {
 				static_cast<System::Byte>(204)));
 			this->extras->FormattingEnabled = true;
 			this->extras->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Фотобудка", L"Фотозона", L"Воздушные шары", L"Миньоны" });
-			this->extras->Location = System::Drawing::Point(12, 414);
+			this->extras->Location = System::Drawing::Point(240, 420);
 			this->extras->Name = L"extras";
 			this->extras->Size = System::Drawing::Size(151, 80);
 			this->extras->TabIndex = 6;
@@ -281,7 +301,7 @@ namespace ChinarDesktop {
 			this->tables_label->AutoSize = true;
 			this->tables_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->tables_label->Location = System::Drawing::Point(10, 387);
+			this->tables_label->Location = System::Drawing::Point(9, 433);
 			this->tables_label->Name = L"tables_label";
 			this->tables_label->Size = System::Drawing::Size(72, 16);
 			this->tables_label->TabIndex = 8;
@@ -292,9 +312,9 @@ namespace ChinarDesktop {
 			this->occasion->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->occasion->FormattingEnabled = true;
 			this->occasion->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Поминальные", L"Свадьба", L"День рождения", L"Иное:" });
-			this->occasion->Location = System::Drawing::Point(119, 358);
+			this->occasion->Location = System::Drawing::Point(12, 379);
 			this->occasion->Name = L"occasion";
-			this->occasion->Size = System::Drawing::Size(121, 21);
+			this->occasion->Size = System::Drawing::Size(159, 21);
 			this->occasion->TabIndex = 9;
 			this->occasion->SelectedIndexChanged += gcnew System::EventHandler(this, &order_form::occasion_SelectedIndexChanged);
 			// 
@@ -306,25 +326,25 @@ namespace ChinarDesktop {
 				L"Синие хлопковые", L"Красные хлопковые", L"Черные хлопковые",
 					L"Иное:"
 			});
-			this->tables->Location = System::Drawing::Point(119, 387);
+			this->tables->Location = System::Drawing::Point(12, 457);
 			this->tables->Name = L"tables";
-			this->tables->Size = System::Drawing::Size(121, 21);
+			this->tables->Size = System::Drawing::Size(159, 21);
 			this->tables->TabIndex = 10;
 			this->tables->SelectedIndexChanged += gcnew System::EventHandler(this, &order_form::tables_SelectedIndexChanged);
 			// 
 			// custom_occasion
 			// 
-			this->custom_occasion->Location = System::Drawing::Point(246, 359);
+			this->custom_occasion->Location = System::Drawing::Point(12, 406);
 			this->custom_occasion->Name = L"custom_occasion";
-			this->custom_occasion->Size = System::Drawing::Size(163, 20);
+			this->custom_occasion->Size = System::Drawing::Size(159, 20);
 			this->custom_occasion->TabIndex = 11;
 			this->custom_occasion->Visible = false;
 			// 
 			// custom_tables
 			// 
-			this->custom_tables->Location = System::Drawing::Point(246, 388);
+			this->custom_tables->Location = System::Drawing::Point(12, 484);
 			this->custom_tables->Name = L"custom_tables";
-			this->custom_tables->Size = System::Drawing::Size(163, 20);
+			this->custom_tables->Size = System::Drawing::Size(159, 20);
 			this->custom_tables->TabIndex = 12;
 			this->custom_tables->Visible = false;
 			// 
@@ -351,7 +371,7 @@ namespace ChinarDesktop {
 			// roubles
 			// 
 			this->roubles->Enabled = false;
-			this->roubles->Location = System::Drawing::Point(408, 474);
+			this->roubles->Location = System::Drawing::Point(408, 480);
 			this->roubles->Name = L"roubles";
 			this->roubles->Size = System::Drawing::Size(100, 20);
 			this->roubles->TabIndex = 15;
@@ -359,7 +379,7 @@ namespace ChinarDesktop {
 			// positions
 			// 
 			this->positions->Enabled = false;
-			this->positions->Location = System::Drawing::Point(408, 448);
+			this->positions->Location = System::Drawing::Point(408, 454);
 			this->positions->Name = L"positions";
 			this->positions->Size = System::Drawing::Size(100, 20);
 			this->positions->TabIndex = 16;
@@ -367,7 +387,7 @@ namespace ChinarDesktop {
 			// in_order_label
 			// 
 			this->in_order_label->AutoSize = true;
-			this->in_order_label->Location = System::Drawing::Point(408, 429);
+			this->in_order_label->Location = System::Drawing::Point(408, 435);
 			this->in_order_label->Name = L"in_order_label";
 			this->in_order_label->Size = System::Drawing::Size(56, 13);
 			this->in_order_label->TabIndex = 17;
@@ -377,26 +397,121 @@ namespace ChinarDesktop {
 			// pos_label
 			// 
 			this->pos_label->AutoSize = true;
-			this->pos_label->Location = System::Drawing::Point(515, 454);
+			this->pos_label->Location = System::Drawing::Point(514, 457);
 			this->pos_label->Name = L"pos_label";
 			this->pos_label->Size = System::Drawing::Size(51, 13);
 			this->pos_label->TabIndex = 18;
 			this->pos_label->Text = L"Позиций";
+			this->pos_label->Click += gcnew System::EventHandler(this, &order_form::pos_label_Click);
 			// 
 			// roubles_label
 			// 
 			this->roubles_label->AutoSize = true;
-			this->roubles_label->Location = System::Drawing::Point(515, 480);
+			this->roubles_label->Location = System::Drawing::Point(514, 483);
 			this->roubles_label->Name = L"roubles_label";
 			this->roubles_label->Size = System::Drawing::Size(43, 13);
 			this->roubles_label->TabIndex = 19;
 			this->roubles_label->Text = L"Рублей";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Cursor = System::Windows::Forms::Cursors::SizeAll;
+			this->label1->Location = System::Drawing::Point(405, 297);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(59, 13);
+			this->label1->TabIndex = 20;
+			this->label1->Text = L"Фамилия:";
+			this->label1->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(408, 313);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(151, 20);
+			this->textBox1->TabIndex = 21;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(408, 355);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(151, 20);
+			this->textBox2->TabIndex = 21;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(408, 398);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(151, 20);
+			this->textBox3->TabIndex = 21;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Cursor = System::Windows::Forms::Cursors::SizeAll;
+			this->label2->Location = System::Drawing::Point(405, 339);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(32, 13);
+			this->label2->TabIndex = 20;
+			this->label2->Text = L"Имя:";
+			this->label2->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Cursor = System::Windows::Forms::Cursors::SizeAll;
+			this->label3->Location = System::Drawing::Point(405, 382);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(57, 13);
+			this->label3->TabIndex = 20;
+			this->label3->Text = L"Отчество:";
+			this->label3->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(237, 401);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(134, 13);
+			this->label4->TabIndex = 22;
+			this->label4->Text = L"Дополнительные услуги:";
+			this->label4->Click += gcnew System::EventHandler(this, &order_form::label4_Click);
+			// 
+			// custom_occasion_checkbox
+			// 
+			this->custom_occasion_checkbox->AutoSize = true;
+			this->custom_occasion_checkbox->Location = System::Drawing::Point(177, 406);
+			this->custom_occasion_checkbox->Name = L"custom_occasion_checkbox";
+			this->custom_occasion_checkbox->Size = System::Drawing::Size(50, 17);
+			this->custom_occasion_checkbox->TabIndex = 24;
+			this->custom_occasion_checkbox->Text = L"свое";
+			this->custom_occasion_checkbox->UseVisualStyleBackColor = true;
+			// 
+			// custom_table_checkbox
+			// 
+			this->custom_table_checkbox->AutoSize = true;
+			this->custom_table_checkbox->Location = System::Drawing::Point(177, 487);
+			this->custom_table_checkbox->Name = L"custom_table_checkbox";
+			this->custom_table_checkbox->Size = System::Drawing::Size(50, 17);
+			this->custom_table_checkbox->TabIndex = 24;
+			this->custom_table_checkbox->Text = L"свое";
+			this->custom_table_checkbox->UseVisualStyleBackColor = true;
+			this->custom_table_checkbox->CheckedChanged += gcnew System::EventHandler(this, &order_form::checkBox1_CheckedChanged);
 			// 
 			// order_form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(578, 552);
+			this->Controls->Add(this->custom_table_checkbox);
+			this->Controls->Add(this->custom_occasion_checkbox);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->roubles_label);
 			this->Controls->Add(this->pos_label);
 			this->Controls->Add(this->in_order_label);
@@ -527,6 +642,14 @@ private: System::Void reset_button_Click(System::Object^ sender, System::EventAr
 		dataGrid->Rows[i]->Cells["amount"]->Value = 0;
 	}
 
+}
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void pos_label_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
