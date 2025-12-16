@@ -75,6 +75,9 @@ namespace ChinarDesktop {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::TextBox^ textBox_number;
 	private: System::Windows::Forms::Label^ tel_numb;
+	private: System::Windows::Forms::Label^ label_wishes;
+	private: System::Windows::Forms::TextBox^ textBox4;
+
 
 
 	protected:
@@ -126,6 +129,8 @@ namespace ChinarDesktop {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->textBox_number = (gcnew System::Windows::Forms::TextBox());
 			this->tel_numb = (gcnew System::Windows::Forms::Label());
+			this->label_wishes = (gcnew System::Windows::Forms::Label());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->people_count))->BeginInit();
 			this->SuspendLayout();
@@ -213,72 +218,73 @@ namespace ChinarDesktop {
 				static_cast<System::Byte>(204)));
 			this->extras->FormattingEnabled = true;
 			this->extras->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Фотобудка", L"Фотозона", L"Воздушные шары", L"Миньоны" });
-			this->extras->Location = System::Drawing::Point(219, 424);
+			this->extras->Location = System::Drawing::Point(206, 419);
 			this->extras->Name = L"extras";
-			this->extras->Size = System::Drawing::Size(151, 80);
+			this->extras->Size = System::Drawing::Size(166, 80);
 			this->extras->TabIndex = 6;
 			this->extras->SelectedIndexChanged += gcnew System::EventHandler(this, &order_form::extras_SelectedIndexChanged);
 			// 
 			// date_select
 			// 
-			this->date_select->Location = System::Drawing::Point(126, 293);
+			this->date_select->Location = System::Drawing::Point(12, 316);
 			this->date_select->Name = L"date_select";
-			this->date_select->Size = System::Drawing::Size(200, 20);
+			this->date_select->Size = System::Drawing::Size(159, 20);
 			this->date_select->TabIndex = 2;
 			// 
 			// date_label
 			// 
 			this->date_label->AutoSize = true;
-			this->date_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->date_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->date_label->Location = System::Drawing::Point(10, 297);
+			this->date_label->Location = System::Drawing::Point(12, 297);
 			this->date_label->Name = L"date_label";
-			this->date_label->Size = System::Drawing::Size(109, 16);
+			this->date_label->Size = System::Drawing::Size(85, 13);
 			this->date_label->TabIndex = 3;
 			this->date_label->Text = L"Выберите дату:";
 			// 
 			// people_count_label
 			// 
 			this->people_count_label->AutoSize = true;
-			this->people_count_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->people_count_label->Location = System::Drawing::Point(10, 327);
+			this->people_count_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->people_count_label->Location = System::Drawing::Point(10, 339);
 			this->people_count_label->Name = L"people_count_label";
-			this->people_count_label->Size = System::Drawing::Size(146, 16);
+			this->people_count_label->Size = System::Drawing::Size(66, 26);
 			this->people_count_label->TabIndex = 4;
-			this->people_count_label->Text = L"Количество человек:";
+			this->people_count_label->Text = L"Количество\r\nчеловек:";
 			// 
 			// people_count
 			// 
 			this->people_count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->people_count->Location = System::Drawing::Point(165, 325);
+			this->people_count->Location = System::Drawing::Point(116, 343);
 			this->people_count->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
 			this->people_count->Name = L"people_count";
 			this->people_count->Size = System::Drawing::Size(55, 22);
 			this->people_count->TabIndex = 5;
 			this->people_count->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->people_count->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->people_count->ValueChanged += gcnew System::EventHandler(this, &order_form::people_count_ValueChanged);
 			// 
 			// occasion_label
 			// 
 			this->occasion_label->AutoSize = true;
-			this->occasion_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->occasion_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->occasion_label->Location = System::Drawing::Point(10, 358);
+			this->occasion_label->Location = System::Drawing::Point(10, 375);
 			this->occasion_label->Name = L"occasion_label";
-			this->occasion_label->Size = System::Drawing::Size(99, 16);
+			this->occasion_label->Size = System::Drawing::Size(78, 13);
 			this->occasion_label->TabIndex = 7;
 			this->occasion_label->Text = L"Мероприятие:";
 			// 
 			// tables_label
 			// 
 			this->tables_label->AutoSize = true;
-			this->tables_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tables_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->tables_label->Location = System::Drawing::Point(9, 433);
+			this->tables_label->Location = System::Drawing::Point(9, 441);
 			this->tables_label->Name = L"tables_label";
-			this->tables_label->Size = System::Drawing::Size(72, 16);
+			this->tables_label->Size = System::Drawing::Size(57, 13);
 			this->tables_label->TabIndex = 8;
 			this->tables_label->Text = L"Скатерти:";
 			// 
@@ -287,7 +293,7 @@ namespace ChinarDesktop {
 			this->occasion->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->occasion->FormattingEnabled = true;
 			this->occasion->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Поминальные", L"Свадьба", L"День рождения", L"Иное:" });
-			this->occasion->Location = System::Drawing::Point(12, 379);
+			this->occasion->Location = System::Drawing::Point(12, 391);
 			this->occasion->Name = L"occasion";
 			this->occasion->Size = System::Drawing::Size(159, 21);
 			this->occasion->TabIndex = 9;
@@ -309,7 +315,7 @@ namespace ChinarDesktop {
 			// 
 			// custom_occasion
 			// 
-			this->custom_occasion->Location = System::Drawing::Point(12, 406);
+			this->custom_occasion->Location = System::Drawing::Point(12, 418);
 			this->custom_occasion->Name = L"custom_occasion";
 			this->custom_occasion->Size = System::Drawing::Size(159, 20);
 			this->custom_occasion->TabIndex = 11;
@@ -447,7 +453,7 @@ namespace ChinarDesktop {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(216, 405);
+			this->label4->Location = System::Drawing::Point(203, 404);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(134, 13);
 			this->label4->TabIndex = 22;
@@ -456,27 +462,48 @@ namespace ChinarDesktop {
 			// 
 			// textBox_number
 			// 
-			this->textBox_number->Location = System::Drawing::Point(219, 379);
+			this->textBox_number->Location = System::Drawing::Point(206, 312);
 			this->textBox_number->Name = L"textBox_number";
-			this->textBox_number->Size = System::Drawing::Size(151, 20);
+			this->textBox_number->Size = System::Drawing::Size(166, 20);
 			this->textBox_number->TabIndex = 23;
 			// 
 			// tel_numb
 			// 
 			this->tel_numb->AutoSize = true;
 			this->tel_numb->Cursor = System::Windows::Forms::Cursors::SizeAll;
-			this->tel_numb->Location = System::Drawing::Point(216, 360);
+			this->tel_numb->Location = System::Drawing::Point(203, 296);
 			this->tel_numb->Name = L"tel_numb";
 			this->tel_numb->Size = System::Drawing::Size(96, 13);
 			this->tel_numb->TabIndex = 20;
 			this->tel_numb->Text = L"Номер телефона:";
 			this->tel_numb->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
 			// 
+			// label_wishes
+			// 
+			this->label_wishes->AutoSize = true;
+			this->label_wishes->Cursor = System::Windows::Forms::Cursors::SizeAll;
+			this->label_wishes->Location = System::Drawing::Point(203, 339);
+			this->label_wishes->Name = L"label_wishes";
+			this->label_wishes->Size = System::Drawing::Size(129, 13);
+			this->label_wishes->TabIndex = 20;
+			this->label_wishes->Text = L"Доп. пожелания по еде:";
+			this->label_wishes->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
+			// 
+			// textBox4
+			// 
+			this->textBox4->Location = System::Drawing::Point(206, 355);
+			this->textBox4->Multiline = true;
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(166, 47);
+			this->textBox4->TabIndex = 23;
+			this->textBox4->TextChanged += gcnew System::EventHandler(this, &order_form::textBox4_TextChanged);
+			// 
 			// order_form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(578, 552);
+			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox_number);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textBox3);
@@ -484,6 +511,7 @@ namespace ChinarDesktop {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label_wishes);
 			this->Controls->Add(this->tel_numb);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->roubles_label);
@@ -677,13 +705,13 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 		StreamWriter^ sw =
 			gcnew StreamWriter("Occasions.txt", true, Encoding::UTF8);
 
-		sw->Write(textBox1->Text + " " +
-			textBox2->Text + " " +
-			textBox3->Text + "|");
+		sw->Write(
+			textBox1->Text + "," +    
+			textBox2->Text + "," +   
+			textBox3->Text + "|" 
+		);
 
 		sw->Write(textBox_number->Text + "|");
-
-		sw->Write("UNKNOWN|");
 
 		DateTime d = date_select->Value;
 		sw->Write(d.Year + "," + d.Month + "," + d.Day + "|");
@@ -693,6 +721,8 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 				custom_occasion->Text :
 				occasion->Text) + "|");
 
+		sw->Write(people_count->Value.ToString() + "|");
+
 		sw->Write(
 			(custom_tables->Visible ?
 				custom_tables->Text :
@@ -701,6 +731,20 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 		for each (String ^ s in extras->CheckedItems)
 			sw->Write(s + " ");
 		sw->Write("|");
+
+		sw->Write(textBox4->Text + "|");
+
+		int uniqueCount = 0;
+		for (int i = 0; i < dataGrid->Rows->Count; i++)
+		{
+			int amount = Convert::ToInt32(
+				dataGrid->Rows[i]->Cells["amount"]->Value);
+
+			if (amount > 0)
+				uniqueCount++;
+		}
+
+		sw->Write(uniqueCount + "|");
 
 		int totalAmount = 0;
 		double totalPrice = 0.0;
@@ -713,11 +757,17 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 			if (amount > 0)
 			{
 				int id = safe_cast<int>(dataGrid->Rows[i]->Tag);
-
+				String^ name =
+					dataGrid->Rows[i]->Cells["name"]->Value->ToString();
 				double rowPrice = Convert::ToDouble(
 					dataGrid->Rows[i]->Cells["total_price"]->Value);
 
-				sw->Write(id + "|" + amount + "|" + rowPrice + "|");
+				sw->Write(
+					id + "|" +
+					name + "|" +
+					amount + "|" +
+					rowPrice + "|"
+				);
 
 				totalAmount += amount;
 				totalPrice += rowPrice;
@@ -727,14 +777,23 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 		sw->WriteLine(totalAmount + "|" + totalPrice);
 		sw->Close();
 
-		MessageBox::Show("Заказ успешно сохранён!", "Успех", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		MessageBox::Show(
+			"Заказ успешно сохранён!",
+			"Успех",
+			MessageBoxButtons::OK,
+			MessageBoxIcon::Information
+		);
 
 		reset_button_Click(sender, e);
 	}
 	catch (Exception^ ex)
 	{
-		MessageBox::Show("Ошибка при сохранении заказа:\n" + ex->Message,
-			"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show(
+			"Ошибка при сохранении заказа:\n" + ex->Message,
+			"Ошибка",
+			MessageBoxButtons::OK,
+			MessageBoxIcon::Error
+		);
 	}
 }
 private: System::Void extras_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -749,6 +808,10 @@ private: System::Void order_form_FormClosed(System::Object^ sender, System::Wind
 		delete menu;
 		menu = nullptr;
 	}
+}
+private: System::Void people_count_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
