@@ -39,9 +39,9 @@ namespace ChinarDesktop {
 	private:std::vector<MenuLoader::Dish>* menu;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::DataGridView^ dataGrid;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ name;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ price;
-	private: System::Windows::Forms::DataGridViewButtonColumn^ description;
+
+
+
 	private: System::Windows::Forms::Label^ food_name;
 	private: System::Windows::Forms::TextBox^ description_box;
 
@@ -59,6 +59,15 @@ namespace ChinarDesktop {
 	private: System::Windows::Forms::TextBox^ fats_box;
 	private: System::Windows::Forms::TextBox^ carbs_box;
 	private: System::Windows::Forms::Label^ price_label;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ name;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ price;
+	private: System::Windows::Forms::DataGridViewButtonColumn^ description;
+
+
+
+
+
+
 	protected:
 
 	private:
@@ -76,9 +85,6 @@ namespace ChinarDesktop {
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGrid = (gcnew System::Windows::Forms::DataGridView());
-			this->name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->description = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->food_name = (gcnew System::Windows::Forms::Label());
 			this->description_box = (gcnew System::Windows::Forms::TextBox());
 			this->in_product_label = (gcnew System::Windows::Forms::Label());
@@ -93,6 +99,9 @@ namespace ChinarDesktop {
 			this->fats_box = (gcnew System::Windows::Forms::TextBox());
 			this->carbs_box = (gcnew System::Windows::Forms::TextBox());
 			this->price_label = (gcnew System::Windows::Forms::Label());
+			this->name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->description = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -112,6 +121,8 @@ namespace ChinarDesktop {
 			this->dataGrid->AllowUserToDeleteRows = false;
 			this->dataGrid->AllowUserToResizeColumns = false;
 			this->dataGrid->AllowUserToResizeRows = false;
+			this->dataGrid->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+				static_cast<System::Int32>(static_cast<System::Byte>(222)));
 			this->dataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
 				this->name, this->price,
@@ -119,36 +130,11 @@ namespace ChinarDesktop {
 			});
 			this->dataGrid->Location = System::Drawing::Point(12, 12);
 			this->dataGrid->Name = L"dataGrid";
+			this->dataGrid->RowHeadersVisible = false;
 			this->dataGrid->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->dataGrid->Size = System::Drawing::Size(565, 275);
 			this->dataGrid->TabIndex = 3;
 			this->dataGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &menu_form::dataGrid_CellContentClick);
-			// 
-			// name
-			// 
-			this->name->Frozen = true;
-			this->name->HeaderText = L"Название";
-			this->name->Name = L"name";
-			this->name->ReadOnly = true;
-			this->name->Width = 325;
-			// 
-			// price
-			// 
-			this->price->Frozen = true;
-			this->price->HeaderText = L"Цена";
-			this->price->Name = L"price";
-			this->price->ReadOnly = true;
-			// 
-			// description
-			// 
-			this->description->Frozen = true;
-			this->description->HeaderText = L"Описание";
-			this->description->Name = L"description";
-			this->description->ReadOnly = true;
-			this->description->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			this->description->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
-			this->description->Text = L"посмотреть";
-			this->description->UseColumnTextForButtonValue = true;
 			// 
 			// food_name
 			// 
@@ -291,10 +277,41 @@ namespace ChinarDesktop {
 			this->price_label->Text = L"0000 рублей";
 			this->price_label->Visible = false;
 			// 
+			// name
+			// 
+			this->name->Frozen = true;
+			this->name->HeaderText = L"Название";
+			this->name->Name = L"name";
+			this->name->ReadOnly = true;
+			this->name->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->name->Width = 340;
+			// 
+			// price
+			// 
+			this->price->Frozen = true;
+			this->price->HeaderText = L"Цена";
+			this->price->Name = L"price";
+			this->price->ReadOnly = true;
+			this->price->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			// 
+			// description
+			// 
+			this->description->Frozen = true;
+			this->description->HeaderText = L"Описание";
+			this->description->Name = L"description";
+			this->description->ReadOnly = true;
+			this->description->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->description->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
+			this->description->Text = L"посмотреть";
+			this->description->UseColumnTextForButtonValue = true;
+			this->description->Width = 105;
+			// 
 			// menu_form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+				static_cast<System::Int32>(static_cast<System::Byte>(222)));
 			this->ClientSize = System::Drawing::Size(589, 538);
 			this->Controls->Add(this->price_label);
 			this->Controls->Add(this->carbs_box);
