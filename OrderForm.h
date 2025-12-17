@@ -1,6 +1,9 @@
 #pragma once
 #include "MenuLoader.h"
 #include <vector>
+//#include "httplib.h"
+//#include "SendService.h"
+#include "SendProject/SendToServer.h"
 
 namespace ChinarDesktop {
 
@@ -779,6 +782,9 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 			MessageBoxIcon::Error
 		);
 	}
+
+	//Sending File
+	SendToServer::SendFileToServer();
 }
 private: System::Void extras_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }

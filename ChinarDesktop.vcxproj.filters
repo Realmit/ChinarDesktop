@@ -9,53 +9,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="BusinessLogic">
-      <UniqueIdentifier>{68a6768a-b9a3-42d3-a682-ff56367db575}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BusinessLogic\Include">
-      <UniqueIdentifier>{1363b1d3-2815-4881-96e9-596a15e60d87}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BusinessLogic\Src">
-      <UniqueIdentifier>{75ad3c37-3f0c-4399-b5aa-b0b07bf19f6b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BusinessLogic\Include\Services">
-      <UniqueIdentifier>{69b2d275-7335-4b18-9865-dcbae1cff228}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BusinessLogic\Include\Models">
-      <UniqueIdentifier>{a6d5a024-0d97-487e-bb6e-bf1c4dad06c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BusinessLogic\Src\Models">
-      <UniqueIdentifier>{4361c1f3-7d04-4605-8b98-3b6176855f3b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BusinessLogic\Src\Services">
-      <UniqueIdentifier>{3c8087e9-ae41-45c1-864e-f2e45389d3d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BusinessLogic\Include\Enums">
-      <UniqueIdentifier>{89831745-73fa-4cf1-85c0-6b5a81dbdf8e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BusinessLogic\Src\Enums">
-      <UniqueIdentifier>{3158579f-c023-49e7-96a4-690a45476a44}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DataAccess">
       <UniqueIdentifier>{56ce983c-529c-4434-86f8-2e71a881e81a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DataAccess\include">
-      <UniqueIdentifier>{821bcd86-46c6-4109-ad27-624817dd9175}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DataAccess\src">
-      <UniqueIdentifier>{8d2292fa-fbb6-41a1-88d2-870414cba0d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DataAccess\include\DbContext">
-      <UniqueIdentifier>{b48074c3-17ee-4a96-a2fd-5014e71f8efb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DataAccess\src\DbContext">
-      <UniqueIdentifier>{51c9fbeb-7ef0-4a09-81e1-a26c6b8cb446}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DataAccess\include\Models">
-      <UniqueIdentifier>{56e97bc7-95dc-45a3-873d-21bff3ecc21f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DataAccess\src\Models">
-      <UniqueIdentifier>{10571919-6ca6-4212-939b-6ba3ddb80b51}</UniqueIdentifier>
     </Filter>
     <Filter Include="DataAccess\CSV files">
       <UniqueIdentifier>{c787a1e6-b938-45cc-968c-5476ec528a6d}</UniqueIdentifier>
@@ -68,30 +23,6 @@
   <ItemGroup>
     <ClCompile Include="MainForm.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Categories.cpp">
-      <Filter>BusinessLogic\Src\Enums</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuProduct.cpp">
-      <Filter>BusinessLogic\Src\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="Products.cpp">
-      <Filter>BusinessLogic\Src\Enums</Filter>
-    </ClCompile>
-    <ClCompile Include="EventTypes.cpp">
-      <Filter>BusinessLogic\Src\Enums</Filter>
-    </ClCompile>
-    <ClCompile Include="OrderService.cpp">
-      <Filter>BusinessLogic\Src\Services</Filter>
-    </ClCompile>
-    <ClCompile Include="InventoryService.cpp">
-      <Filter>BusinessLogic\Src\Services</Filter>
-    </ClCompile>
-    <ClCompile Include="AppDbContext.cpp">
-      <Filter>DataAccess\src\DbContext</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuModel.cpp">
-      <Filter>DataAccess\src\Models</Filter>
     </ClCompile>
     <ClCompile Include="MenuForm.cpp">
       <Filter>UiForms</Filter>
@@ -106,30 +37,6 @@
   <ItemGroup>
     <ClInclude Include="MainForm.h">
       <Filter>UiForms</Filter>
-    </ClInclude>
-    <ClInclude Include="Categories.h">
-      <Filter>BusinessLogic\Include\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuProduct.h">
-      <Filter>BusinessLogic\Include\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="Products.h">
-      <Filter>BusinessLogic\Include\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="EventTypes.h">
-      <Filter>BusinessLogic\Include\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="OrderService.h">
-      <Filter>BusinessLogic\Include\Services</Filter>
-    </ClInclude>
-    <ClInclude Include="InventoryService.h">
-      <Filter>BusinessLogic\Include\Services</Filter>
-    </ClInclude>
-    <ClInclude Include="AppDbContext.h">
-      <Filter>DataAccess\include\DbContext</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuModel.h">
-      <Filter>DataAccess\include\Models</Filter>
     </ClInclude>
     <ClInclude Include="MenuForm.h">
       <Filter>UiForms</Filter>
