@@ -86,6 +86,8 @@ namespace ChinarDesktop {
 	private: System::Windows::Forms::DataGridViewButtonColumn^ remove_button;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ amount;
 	private: System::Windows::Forms::DataGridViewButtonColumn^ add_button;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ textBox3;
 
 
 
@@ -111,6 +113,12 @@ namespace ChinarDesktop {
 		{
 			this->return_button = (gcnew System::Windows::Forms::Button());
 			this->dataGrid = (gcnew System::Windows::Forms::DataGridView());
+			this->name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->total_price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->remove_button = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->amount = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->add_button = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->extras = (gcnew System::Windows::Forms::CheckedListBox());
 			this->date_select = (gcnew System::Windows::Forms::DateTimePicker());
 			this->date_label = (gcnew System::Windows::Forms::Label());
@@ -136,12 +144,8 @@ namespace ChinarDesktop {
 			this->tel_numb = (gcnew System::Windows::Forms::Label());
 			this->label_wishes = (gcnew System::Windows::Forms::Label());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->total_price = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->remove_button = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->amount = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->add_button = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->people_count))->BeginInit();
 			this->SuspendLayout();
@@ -178,6 +182,61 @@ namespace ChinarDesktop {
 			this->dataGrid->Size = System::Drawing::Size(556, 275);
 			this->dataGrid->TabIndex = 1;
 			this->dataGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &order_form::dataGrid_CellContentClick);
+			// 
+			// name
+			// 
+			this->name->Frozen = true;
+			this->name->HeaderText = L"Название";
+			this->name->Name = L"name";
+			this->name->ReadOnly = true;
+			this->name->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->name->Width = 125;
+			// 
+			// price
+			// 
+			this->price->Frozen = true;
+			this->price->HeaderText = L"Цена";
+			this->price->Name = L"price";
+			this->price->ReadOnly = true;
+			this->price->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			// 
+			// total_price
+			// 
+			this->total_price->Frozen = true;
+			this->total_price->HeaderText = L"Цена за все";
+			this->total_price->Name = L"total_price";
+			this->total_price->ReadOnly = true;
+			this->total_price->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			// 
+			// remove_button
+			// 
+			this->remove_button->Frozen = true;
+			this->remove_button->HeaderText = L"Убрать";
+			this->remove_button->Name = L"remove_button";
+			this->remove_button->ReadOnly = true;
+			this->remove_button->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->remove_button->Text = L"--";
+			this->remove_button->UseColumnTextForButtonValue = true;
+			this->remove_button->Width = 66;
+			// 
+			// amount
+			// 
+			this->amount->Frozen = true;
+			this->amount->HeaderText = L"Количество";
+			this->amount->Name = L"amount";
+			this->amount->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->amount->Width = 80;
+			// 
+			// add_button
+			// 
+			this->add_button->Frozen = true;
+			this->add_button->HeaderText = L"Добавить";
+			this->add_button->Name = L"add_button";
+			this->add_button->ReadOnly = true;
+			this->add_button->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->add_button->Text = L"-|-";
+			this->add_button->UseColumnTextForButtonValue = true;
+			this->add_button->Width = 66;
 			// 
 			// extras
 			// 
@@ -327,7 +386,7 @@ namespace ChinarDesktop {
 			// roubles
 			// 
 			this->roubles->Enabled = false;
-			this->roubles->Location = System::Drawing::Point(408, 480);
+			this->roubles->Location = System::Drawing::Point(404, 484);
 			this->roubles->Name = L"roubles";
 			this->roubles->Size = System::Drawing::Size(100, 20);
 			this->roubles->TabIndex = 15;
@@ -335,7 +394,7 @@ namespace ChinarDesktop {
 			// positions
 			// 
 			this->positions->Enabled = false;
-			this->positions->Location = System::Drawing::Point(408, 454);
+			this->positions->Location = System::Drawing::Point(404, 458);
 			this->positions->Name = L"positions";
 			this->positions->Size = System::Drawing::Size(100, 20);
 			this->positions->TabIndex = 16;
@@ -344,7 +403,7 @@ namespace ChinarDesktop {
 			// in_order_label
 			// 
 			this->in_order_label->AutoSize = true;
-			this->in_order_label->Location = System::Drawing::Point(408, 435);
+			this->in_order_label->Location = System::Drawing::Point(404, 439);
 			this->in_order_label->Name = L"in_order_label";
 			this->in_order_label->Size = System::Drawing::Size(56, 13);
 			this->in_order_label->TabIndex = 17;
@@ -354,7 +413,7 @@ namespace ChinarDesktop {
 			// pos_label
 			// 
 			this->pos_label->AutoSize = true;
-			this->pos_label->Location = System::Drawing::Point(514, 457);
+			this->pos_label->Location = System::Drawing::Point(510, 461);
 			this->pos_label->Name = L"pos_label";
 			this->pos_label->Size = System::Drawing::Size(51, 13);
 			this->pos_label->TabIndex = 18;
@@ -364,7 +423,7 @@ namespace ChinarDesktop {
 			// roubles_label
 			// 
 			this->roubles_label->AutoSize = true;
-			this->roubles_label->Location = System::Drawing::Point(514, 483);
+			this->roubles_label->Location = System::Drawing::Point(510, 487);
 			this->roubles_label->Name = L"roubles_label";
 			this->roubles_label->Size = System::Drawing::Size(43, 13);
 			this->roubles_label->TabIndex = 19;
@@ -374,7 +433,7 @@ namespace ChinarDesktop {
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Cursor = System::Windows::Forms::Cursors::SizeAll;
-			this->label1->Location = System::Drawing::Point(403, 322);
+			this->label1->Location = System::Drawing::Point(401, 295);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(89, 13);
 			this->label1->TabIndex = 20;
@@ -383,7 +442,7 @@ namespace ChinarDesktop {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(406, 338);
+			this->textBox1->Location = System::Drawing::Point(404, 311);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(151, 20);
 			this->textBox1->TabIndex = 21;
@@ -400,7 +459,7 @@ namespace ChinarDesktop {
 			// 
 			// textBox_number
 			// 
-			this->textBox_number->Location = System::Drawing::Point(406, 392);
+			this->textBox_number->Location = System::Drawing::Point(404, 412);
 			this->textBox_number->Name = L"textBox_number";
 			this->textBox_number->Size = System::Drawing::Size(149, 20);
 			this->textBox_number->TabIndex = 23;
@@ -409,7 +468,7 @@ namespace ChinarDesktop {
 			// 
 			this->tel_numb->AutoSize = true;
 			this->tel_numb->Cursor = System::Windows::Forms::Cursors::SizeAll;
-			this->tel_numb->Location = System::Drawing::Point(403, 375);
+			this->tel_numb->Location = System::Drawing::Point(401, 395);
 			this->tel_numb->Name = L"tel_numb";
 			this->tel_numb->Size = System::Drawing::Size(129, 13);
 			this->tel_numb->TabIndex = 20;
@@ -436,60 +495,19 @@ namespace ChinarDesktop {
 			this->textBox4->TabIndex = 23;
 			this->textBox4->TextChanged += gcnew System::EventHandler(this, &order_form::textBox4_TextChanged);
 			// 
-			// name
+			// textBox2
 			// 
-			this->name->Frozen = true;
-			this->name->HeaderText = L"Название";
-			this->name->Name = L"name";
-			this->name->ReadOnly = true;
-			this->name->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->name->Width = 125;
+			this->textBox2->Location = System::Drawing::Point(404, 338);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(151, 20);
+			this->textBox2->TabIndex = 24;
 			// 
-			// price
+			// textBox3
 			// 
-			this->price->Frozen = true;
-			this->price->HeaderText = L"Цена";
-			this->price->Name = L"price";
-			this->price->ReadOnly = true;
-			this->price->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			// 
-			// total_price
-			// 
-			this->total_price->Frozen = true;
-			this->total_price->HeaderText = L"Цена за все";
-			this->total_price->Name = L"total_price";
-			this->total_price->ReadOnly = true;
-			this->total_price->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			// 
-			// remove_button
-			// 
-			this->remove_button->Frozen = true;
-			this->remove_button->HeaderText = L"Убрать";
-			this->remove_button->Name = L"remove_button";
-			this->remove_button->ReadOnly = true;
-			this->remove_button->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->remove_button->Text = L"--";
-			this->remove_button->UseColumnTextForButtonValue = true;
-			this->remove_button->Width = 66;
-			// 
-			// amount
-			// 
-			this->amount->Frozen = true;
-			this->amount->HeaderText = L"Количество";
-			this->amount->Name = L"amount";
-			this->amount->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->amount->Width = 80;
-			// 
-			// add_button
-			// 
-			this->add_button->Frozen = true;
-			this->add_button->HeaderText = L"Добавить";
-			this->add_button->Name = L"add_button";
-			this->add_button->ReadOnly = true;
-			this->add_button->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->add_button->Text = L"-|-";
-			this->add_button->UseColumnTextForButtonValue = true;
-			this->add_button->Width = 66;
+			this->textBox3->Location = System::Drawing::Point(404, 368);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(151, 20);
+			this->textBox3->TabIndex = 25;
 			// 
 			// order_form
 			// 
@@ -498,6 +516,8 @@ namespace ChinarDesktop {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(222)));
 			this->ClientSize = System::Drawing::Size(578, 552);
+			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox_number);
 			this->Controls->Add(this->label4);
@@ -674,6 +694,8 @@ private: System::Void reset_button_Click(System::Object^ sender, System::EventAr
 	roubles->Text = "0";
 
 	textBox1->Text = "";
+	textBox2->Text = "";
+	textBox3->Text = "";
 	textBox_number->Text = ""; 
 
 	custom_occasion->Visible = false;
@@ -695,7 +717,11 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 			gcnew StreamWriter("Occasions.txt", true, Encoding::UTF8);
 
 		sw->Write(
-			textBox1->Text + "," 
+			textBox1->Text + "," +
+
+			textBox2->Text + "," +
+
+			textBox3->Text + "|"
 		);
 
 		sw->Write(textBox_number->Text + "|");
