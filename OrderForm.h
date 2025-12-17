@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "MenuLoader.h"
 #include <vector>
 //#include "httplib.h"
@@ -17,7 +17,7 @@ namespace ChinarDesktop {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для order_form
+	/// РЎРІРѕРґРєР° РґР»СЏ order_form
 	/// </summary>
 	public ref class order_form : public System::Windows::Forms::Form
 	{
@@ -26,13 +26,13 @@ namespace ChinarDesktop {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: РґРѕР±Р°РІСЊС‚Рµ РєРѕРґ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~order_form()
 		{
@@ -100,14 +100,14 @@ namespace ChinarDesktop {
 	protected:
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// РўСЂРµР±СѓРµРјС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° вЂ” РЅРµ РёР·РјРµРЅСЏР№С‚Рµ 
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -158,7 +158,7 @@ namespace ChinarDesktop {
 			this->return_button->Name = L"return_button";
 			this->return_button->Size = System::Drawing::Size(138, 23);
 			this->return_button->TabIndex = 0;
-			this->return_button->Text = L"назад";
+			this->return_button->Text = L"РЅР°Р·Р°Рґ";
 			this->return_button->UseVisualStyleBackColor = false;
 			this->return_button->Click += gcnew System::EventHandler(this, &order_form::return_button_Click);
 			// 
@@ -186,7 +186,7 @@ namespace ChinarDesktop {
 			// name
 			// 
 			this->name->Frozen = true;
-			this->name->HeaderText = L"Название";
+			this->name->HeaderText = L"РќР°Р·РІР°РЅРёРµ";
 			this->name->Name = L"name";
 			this->name->ReadOnly = true;
 			this->name->Resizable = System::Windows::Forms::DataGridViewTriState::False;
@@ -195,7 +195,7 @@ namespace ChinarDesktop {
 			// price
 			// 
 			this->price->Frozen = true;
-			this->price->HeaderText = L"Цена";
+			this->price->HeaderText = L"Р¦РµРЅР°";
 			this->price->Name = L"price";
 			this->price->ReadOnly = true;
 			this->price->Resizable = System::Windows::Forms::DataGridViewTriState::False;
@@ -203,7 +203,7 @@ namespace ChinarDesktop {
 			// total_price
 			// 
 			this->total_price->Frozen = true;
-			this->total_price->HeaderText = L"Цена за все";
+			this->total_price->HeaderText = L"Р¦РµРЅР° Р·Р° РІСЃРµ";
 			this->total_price->Name = L"total_price";
 			this->total_price->ReadOnly = true;
 			this->total_price->Resizable = System::Windows::Forms::DataGridViewTriState::False;
@@ -211,7 +211,7 @@ namespace ChinarDesktop {
 			// remove_button
 			// 
 			this->remove_button->Frozen = true;
-			this->remove_button->HeaderText = L"Убрать";
+			this->remove_button->HeaderText = L"РЈР±СЂР°С‚СЊ";
 			this->remove_button->Name = L"remove_button";
 			this->remove_button->ReadOnly = true;
 			this->remove_button->Resizable = System::Windows::Forms::DataGridViewTriState::False;
@@ -222,7 +222,7 @@ namespace ChinarDesktop {
 			// amount
 			// 
 			this->amount->Frozen = true;
-			this->amount->HeaderText = L"Количество";
+			this->amount->HeaderText = L"РљРѕР»РёС‡РµСЃС‚РІРѕ";
 			this->amount->Name = L"amount";
 			this->amount->Resizable = System::Windows::Forms::DataGridViewTriState::False;
 			this->amount->Width = 80;
@@ -230,7 +230,7 @@ namespace ChinarDesktop {
 			// add_button
 			// 
 			this->add_button->Frozen = true;
-			this->add_button->HeaderText = L"Добавить";
+			this->add_button->HeaderText = L"Р”РѕР±Р°РІРёС‚СЊ";
 			this->add_button->Name = L"add_button";
 			this->add_button->ReadOnly = true;
 			this->add_button->Resizable = System::Windows::Forms::DataGridViewTriState::False;
@@ -244,7 +244,7 @@ namespace ChinarDesktop {
 			this->extras->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->extras->FormattingEnabled = true;
-			this->extras->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Фотобудка", L"Фотозона", L"Воздушные шары", L"Миньоны" });
+			this->extras->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Р¤РѕС‚РѕР±СѓРґРєР°", L"Р¤РѕС‚РѕР·РѕРЅР°", L"Р’РѕР·РґСѓС€РЅС‹Рµ С€Р°СЂС‹", L"РњРёРЅСЊРѕРЅС‹" });
 			this->extras->Location = System::Drawing::Point(204, 391);
 			this->extras->Name = L"extras";
 			this->extras->Size = System::Drawing::Size(166, 80);
@@ -267,7 +267,7 @@ namespace ChinarDesktop {
 			this->date_label->Name = L"date_label";
 			this->date_label->Size = System::Drawing::Size(85, 13);
 			this->date_label->TabIndex = 3;
-			this->date_label->Text = L"Выберите дату:";
+			this->date_label->Text = L"Р’С‹Р±РµСЂРёС‚Рµ РґР°С‚Сѓ:";
 			// 
 			// people_count_label
 			// 
@@ -278,7 +278,7 @@ namespace ChinarDesktop {
 			this->people_count_label->Name = L"people_count_label";
 			this->people_count_label->Size = System::Drawing::Size(66, 26);
 			this->people_count_label->TabIndex = 4;
-			this->people_count_label->Text = L"Количество\r\nчеловек:";
+			this->people_count_label->Text = L"РљРѕР»РёС‡РµСЃС‚РІРѕ\r\nС‡РµР»РѕРІРµРє:";
 			// 
 			// people_count
 			// 
@@ -302,7 +302,7 @@ namespace ChinarDesktop {
 			this->occasion_label->Name = L"occasion_label";
 			this->occasion_label->Size = System::Drawing::Size(78, 13);
 			this->occasion_label->TabIndex = 7;
-			this->occasion_label->Text = L"Мероприятие:";
+			this->occasion_label->Text = L"РњРµСЂРѕРїСЂРёСЏС‚РёРµ:";
 			// 
 			// tables_label
 			// 
@@ -313,13 +313,13 @@ namespace ChinarDesktop {
 			this->tables_label->Name = L"tables_label";
 			this->tables_label->Size = System::Drawing::Size(57, 13);
 			this->tables_label->TabIndex = 8;
-			this->tables_label->Text = L"Скатерти:";
+			this->tables_label->Text = L"РЎРєР°С‚РµСЂС‚Рё:";
 			// 
 			// occasion
 			// 
 			this->occasion->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->occasion->FormattingEnabled = true;
-			this->occasion->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Поминальные", L"Свадьба", L"День рождения", L"Иное:" });
+			this->occasion->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"РџРѕРјРёРЅР°Р»СЊРЅС‹Рµ", L"РЎРІР°РґСЊР±Р°", L"Р”РµРЅСЊ СЂРѕР¶РґРµРЅРёСЏ", L"РРЅРѕРµ:" });
 			this->occasion->Location = System::Drawing::Point(12, 391);
 			this->occasion->Name = L"occasion";
 			this->occasion->Size = System::Drawing::Size(159, 21);
@@ -331,8 +331,8 @@ namespace ChinarDesktop {
 			this->tables->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->tables->FormattingEnabled = true;
 			this->tables->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
-				L"Синие хлопковые", L"Красные хлопковые", L"Черные хлопковые",
-					L"Иное:"
+				L"РЎРёРЅРёРµ С…Р»РѕРїРєРѕРІС‹Рµ", L"РљСЂР°СЃРЅС‹Рµ С…Р»РѕРїРєРѕРІС‹Рµ", L"Р§РµСЂРЅС‹Рµ С…Р»РѕРїРєРѕРІС‹Рµ",
+					L"РРЅРѕРµ:"
 			});
 			this->tables->Location = System::Drawing::Point(12, 457);
 			this->tables->Name = L"tables";
@@ -365,7 +365,7 @@ namespace ChinarDesktop {
 			this->order_button->Name = L"order_button";
 			this->order_button->Size = System::Drawing::Size(151, 23);
 			this->order_button->TabIndex = 13;
-			this->order_button->Text = L"сделать заказ";
+			this->order_button->Text = L"СЃРґРµР»Р°С‚СЊ Р·Р°РєР°Р·";
 			this->order_button->UseVisualStyleBackColor = false;
 			this->order_button->Click += gcnew System::EventHandler(this, &order_form::order_button_Click);
 			// 
@@ -379,7 +379,7 @@ namespace ChinarDesktop {
 			this->reset_button->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->reset_button->Size = System::Drawing::Size(139, 23);
 			this->reset_button->TabIndex = 14;
-			this->reset_button->Text = L"сбросить заказ";
+			this->reset_button->Text = L"СЃР±СЂРѕСЃРёС‚СЊ Р·Р°РєР°Р·";
 			this->reset_button->UseVisualStyleBackColor = false;
 			this->reset_button->Click += gcnew System::EventHandler(this, &order_form::reset_button_Click);
 			// 
@@ -407,7 +407,7 @@ namespace ChinarDesktop {
 			this->in_order_label->Name = L"in_order_label";
 			this->in_order_label->Size = System::Drawing::Size(56, 13);
 			this->in_order_label->TabIndex = 17;
-			this->in_order_label->Text = L"В заказе:";
+			this->in_order_label->Text = L"Р’ Р·Р°РєР°Р·Рµ:";
 			this->in_order_label->TextAlign = System::Drawing::ContentAlignment::TopRight;
 			// 
 			// pos_label
@@ -417,7 +417,7 @@ namespace ChinarDesktop {
 			this->pos_label->Name = L"pos_label";
 			this->pos_label->Size = System::Drawing::Size(51, 13);
 			this->pos_label->TabIndex = 18;
-			this->pos_label->Text = L"Позиций";
+			this->pos_label->Text = L"РџРѕР·РёС†РёР№";
 			this->pos_label->Click += gcnew System::EventHandler(this, &order_form::pos_label_Click);
 			// 
 			// roubles_label
@@ -427,7 +427,7 @@ namespace ChinarDesktop {
 			this->roubles_label->Name = L"roubles_label";
 			this->roubles_label->Size = System::Drawing::Size(43, 13);
 			this->roubles_label->TabIndex = 19;
-			this->roubles_label->Text = L"Рублей";
+			this->roubles_label->Text = L"Р СѓР±Р»РµР№";
 			// 
 			// label1
 			// 
@@ -437,7 +437,7 @@ namespace ChinarDesktop {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(89, 13);
 			this->label1->TabIndex = 20;
-			this->label1->Text = L"Фио заказчика:";
+			this->label1->Text = L"Р¤РёРѕ Р·Р°РєР°Р·С‡РёРєР°:";
 			this->label1->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
 			// 
 			// textBox1
@@ -454,7 +454,7 @@ namespace ChinarDesktop {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(134, 13);
 			this->label4->TabIndex = 22;
-			this->label4->Text = L"Дополнительные услуги:";
+			this->label4->Text = L"Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СѓСЃР»СѓРіРё:";
 			this->label4->Click += gcnew System::EventHandler(this, &order_form::label4_Click);
 			// 
 			// textBox_number
@@ -472,7 +472,7 @@ namespace ChinarDesktop {
 			this->tel_numb->Name = L"tel_numb";
 			this->tel_numb->Size = System::Drawing::Size(129, 13);
 			this->tel_numb->TabIndex = 20;
-			this->tel_numb->Text = L"Номер телефона/почта:";
+			this->tel_numb->Text = L"РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°/РїРѕС‡С‚Р°:";
 			this->tel_numb->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
 			// 
 			// label_wishes
@@ -483,7 +483,7 @@ namespace ChinarDesktop {
 			this->label_wishes->Name = L"label_wishes";
 			this->label_wishes->Size = System::Drawing::Size(129, 13);
 			this->label_wishes->TabIndex = 20;
-			this->label_wishes->Text = L"Доп. пожелания по еде:";
+			this->label_wishes->Text = L"Р”РѕРї. РїРѕР¶РµР»Р°РЅРёСЏ РїРѕ РµРґРµ:";
 			this->label_wishes->Click += gcnew System::EventHandler(this, &order_form::label1_Click);
 			// 
 			// textBox4
@@ -789,12 +789,12 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 		sw->WriteLine(totalAmount + "|" + totalPrice);
 		sw->Close();
 
-		MessageBox::Show("Заказ успешно сохранён", "OK");
+		MessageBox::Show("Р—Р°РєР°Р· СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅС‘РЅ", "OK");
 		reset_button_Click(sender, e);
 	}
 	catch (Exception^ ex)
 	{
-		MessageBox::Show(ex->Message, "Ошибка");
+		MessageBox::Show(ex->Message, "РћС€РёР±РєР°");
 	}
 }
 private: System::Void extras_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {

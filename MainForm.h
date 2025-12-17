@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "MenuForm.h"
 #include "OrderForm.h"
 #include "ShowOrders.h"
@@ -12,7 +12,7 @@ namespace ChinarDesktop {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для MainForm
+	/// РЎРІРѕРґРєР° РґР»СЏ MainForm
 	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
@@ -21,13 +21,13 @@ namespace ChinarDesktop {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: РґРѕР±Р°РІСЊС‚Рµ РєРѕРґ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~MainForm()
 		{
@@ -47,14 +47,14 @@ namespace ChinarDesktop {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// РўСЂРµР±СѓРµРјС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° вЂ” РЅРµ РёР·РјРµРЅСЏР№С‚Рµ 
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -83,7 +83,7 @@ namespace ChinarDesktop {
 			this->menu_button->Name = L"menu_button";
 			this->menu_button->Size = System::Drawing::Size(320, 50);
 			this->menu_button->TabIndex = 2;
-			this->menu_button->Text = L"Зайти в меню";
+			this->menu_button->Text = L"Р—Р°Р№С‚Рё РІ РјРµРЅСЋ";
 			this->menu_button->UseVisualStyleBackColor = true;
 			this->menu_button->Click += gcnew System::EventHandler(this, &MainForm::menu_button_Click);
 			// 
@@ -93,7 +93,7 @@ namespace ChinarDesktop {
 			this->order_button->Name = L"order_button";
 			this->order_button->Size = System::Drawing::Size(144, 50);
 			this->order_button->TabIndex = 3;
-			this->order_button->Text = L"Сделать заказ";
+			this->order_button->Text = L"РЎРґРµР»Р°С‚СЊ Р·Р°РєР°Р·";
 			this->order_button->UseVisualStyleBackColor = true;
 			this->order_button->Click += gcnew System::EventHandler(this, &MainForm::order_button_Click);
 			// 
@@ -103,7 +103,7 @@ namespace ChinarDesktop {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(320, 50);
 			this->button1->TabIndex = 4;
-			this->button1->Text = L"Выход";
+			this->button1->Text = L"Р’С‹С…РѕРґ";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 
@@ -114,7 +114,7 @@ namespace ChinarDesktop {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(182, 13);
 			this->label1->TabIndex = 5;
-			this->label1->Text = L"Дизайн студия Арсения Лебедева";
+			this->label1->Text = L"Р”РёР·Р°Р№РЅ СЃС‚СѓРґРёСЏ РђСЂСЃРµРЅРёСЏ Р›РµР±РµРґРµРІР°";
 			// 
 			// Show_all_orders_button
 			// 
@@ -122,7 +122,7 @@ namespace ChinarDesktop {
 			this->Show_all_orders_button->Name = L"Show_all_orders_button";
 			this->Show_all_orders_button->Size = System::Drawing::Size(170, 50);
 			this->Show_all_orders_button->TabIndex = 6;
-			this->Show_all_orders_button->Text = L"Показать все заказы";
+			this->Show_all_orders_button->Text = L"РџРѕРєР°Р·Р°С‚СЊ РІСЃРµ Р·Р°РєР°Р·С‹";
 			this->Show_all_orders_button->UseVisualStyleBackColor = true;
 			this->Show_all_orders_button->Click += gcnew System::EventHandler(this, &MainForm::Show_all_orders_button_Click);
 			// 
