@@ -1,6 +1,7 @@
 #pragma once
 #include "MenuForm.h"
 #include "OrderForm.h"
+#include "ShowOrders.h"
 namespace ChinarDesktop {
 
 	using namespace System;
@@ -40,6 +41,8 @@ namespace ChinarDesktop {
 	private: System::Windows::Forms::Button^ order_button;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ Show_all_orders_button;
+
 	protected:
 
 	private:
@@ -61,6 +64,7 @@ namespace ChinarDesktop {
 			this->order_button = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->Show_all_orders_button = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -87,7 +91,7 @@ namespace ChinarDesktop {
 			// 
 			this->order_button->Location = System::Drawing::Point(190, 224);
 			this->order_button->Name = L"order_button";
-			this->order_button->Size = System::Drawing::Size(320, 50);
+			this->order_button->Size = System::Drawing::Size(144, 50);
 			this->order_button->TabIndex = 3;
 			this->order_button->Text = L"Сделать заказ";
 			this->order_button->UseVisualStyleBackColor = true;
@@ -101,6 +105,7 @@ namespace ChinarDesktop {
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Выход";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 
 			// label1
 			// 
@@ -111,6 +116,16 @@ namespace ChinarDesktop {
 			this->label1->TabIndex = 5;
 			this->label1->Text = L"Дизайн студия Арсения Лебедева";
 			// 
+			// Show_all_orders_button
+			// 
+			this->Show_all_orders_button->Location = System::Drawing::Point(340, 224);
+			this->Show_all_orders_button->Name = L"Show_all_orders_button";
+			this->Show_all_orders_button->Size = System::Drawing::Size(170, 50);
+			this->Show_all_orders_button->TabIndex = 6;
+			this->Show_all_orders_button->Text = L"Показать все заказы";
+			this->Show_all_orders_button->UseVisualStyleBackColor = true;
+			this->Show_all_orders_button->Click += gcnew System::EventHandler(this, &MainForm::Show_all_orders_button_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -118,11 +133,13 @@ namespace ChinarDesktop {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(222)));
 			this->ClientSize = System::Drawing::Size(684, 361);
+			this->Controls->Add(this->Show_all_orders_button);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->order_button);
 			this->Controls->Add(this->menu_button);
 			this->Controls->Add(this->pictureBox1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MainForm";
 			this->Text = L"main_form";
@@ -135,17 +152,21 @@ namespace ChinarDesktop {
 #pragma endregion
 		menu_form^ m_form = gcnew menu_form();
 		order_form^ o_form = gcnew order_form();
+		ShowOrders^ s_form = gcnew ShowOrders();
+
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		m_form->Hide();
-		o_form->Hide();
 	}
 	private: System::Void menu_button_Click(System::Object^ sender, System::EventArgs^ e) {
 		m_form->Show();
-		o_form->Hide();
 	}
 	private: System::Void order_button_Click(System::Object^ sender, System::EventArgs^ e) {
 		o_form->Show();
-		m_form->Hide();
 	}
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+	private: System::Void Show_all_orders_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		s_form->Show();
+	}
+};
 }

@@ -124,6 +124,7 @@
     <ClCompile Include="MenuForm.cpp" />
     <ClCompile Include="MenuLoader.cpp" />
     <ClCompile Include="OrderForm.cpp" />
+    <ClCompile Include="ShowOrders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainForm.h">
@@ -134,6 +135,9 @@
     </ClInclude>
     <ClInclude Include="MenuLoader.h" />
     <ClInclude Include="OrderForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ShowOrders.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -147,15 +151,13 @@
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShowOrders.resx">
+      <DependentUpon>ShowOrders.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Menu.txt" />
     <Text Include="Occasions.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="SendProject\SendProject.vcxproj">
-      <Project>{58ff92c6-cd6e-458e-adf5-75936cc1bf7b}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

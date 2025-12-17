@@ -5,8 +5,6 @@ VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChinarDesktop", "ChinarDesktop.vcxproj", "{BE484F40-A177-4CE6-9759-50ED9B4BF453}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SendProject", "SendProject\SendProject.vcxproj", "{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{BE484F40-A177-4CE6-9759-50ED9B4BF453}.Release|x64.Build.0 = Release|x64
 		{BE484F40-A177-4CE6-9759-50ED9B4BF453}.Release|x86.ActiveCfg = Release|Win32
 		{BE484F40-A177-4CE6-9759-50ED9B4BF453}.Release|x86.Build.0 = Release|Win32
-		{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}.Debug|x64.ActiveCfg = Debug|x64
-		{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}.Debug|x64.Build.0 = Debug|x64
-		{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}.Debug|x86.ActiveCfg = Debug|Win32
-		{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}.Debug|x86.Build.0 = Debug|Win32
-		{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}.Release|x64.ActiveCfg = Release|x64
-		{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}.Release|x64.Build.0 = Release|x64
-		{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}.Release|x86.ActiveCfg = Release|Win32
-		{58FF92C6-CD6E-458E-ADF5-75936CC1BF7B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -245,7 +245,7 @@ namespace ChinarDesktop {
 				static_cast<System::Byte>(204)));
 			this->extras->FormattingEnabled = true;
 			this->extras->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Фотобудка", L"Фотозона", L"Воздушные шары", L"Миньоны" });
-			this->extras->Location = System::Drawing::Point(190, 375);
+			this->extras->Location = System::Drawing::Point(204, 391);
 			this->extras->Name = L"extras";
 			this->extras->Size = System::Drawing::Size(166, 80);
 			this->extras->TabIndex = 6;
@@ -450,7 +450,7 @@ namespace ChinarDesktop {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(187, 360);
+			this->label4->Location = System::Drawing::Point(201, 376);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(134, 13);
 			this->label4->TabIndex = 22;
@@ -479,7 +479,7 @@ namespace ChinarDesktop {
 			// 
 			this->label_wishes->AutoSize = true;
 			this->label_wishes->Cursor = System::Windows::Forms::Cursors::SizeAll;
-			this->label_wishes->Location = System::Drawing::Point(187, 295);
+			this->label_wishes->Location = System::Drawing::Point(201, 311);
 			this->label_wishes->Name = L"label_wishes";
 			this->label_wishes->Size = System::Drawing::Size(129, 13);
 			this->label_wishes->TabIndex = 20;
@@ -488,7 +488,7 @@ namespace ChinarDesktop {
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(190, 311);
+			this->textBox4->Location = System::Drawing::Point(204, 327);
 			this->textBox4->Multiline = true;
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(166, 47);
@@ -718,32 +718,37 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 
 		sw->Write(
 			textBox1->Text + "," +
-
 			textBox2->Text + "," +
-
-			textBox3->Text + "|"
-		);
+			textBox3->Text + "|");
 
 		sw->Write(textBox_number->Text + "|");
 
 		DateTime d = date_select->Value;
-		sw->Write(d.Year + "," + d.Month + "," + d.Day + "|");
+		sw->Write(
+			d.Year + "," + d.Month + "," + d.Day + "|");
 
 		sw->Write(
 			(custom_occasion->Visible ?
 				custom_occasion->Text :
 				occasion->Text) + "|");
 
-		sw->Write(people_count->Value.ToString() + "|");
+		sw->Write(
+			people_count->Value.ToString() + "|");
 
 		sw->Write(
 			(custom_tables->Visible ?
 				custom_tables->Text :
-				tables->Text) + "|");
+				tables->Text) + "|"); 
 
+		bool first = true;
 		for each (String ^ s in extras->CheckedItems)
-			sw->Write(s + " ");
+		{
+			if (!first) sw->Write(";");
+			sw->Write(s);
+			first = false;
+		}
 		sw->Write("|");
+
 
 		sw->Write(textBox4->Text + "|");
 
@@ -752,12 +757,11 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 		{
 			int amount = Convert::ToInt32(
 				dataGrid->Rows[i]->Cells["amount"]->Value);
-
 			if (amount > 0)
 				uniqueCount++;
 		}
 
-		sw->Write(uniqueCount + "|");
+		sw->Write(uniqueCount + "|"); 
 
 		int totalAmount = 0;
 		double totalPrice = 0.0;
@@ -769,48 +773,29 @@ private: System::Void order_button_Click(System::Object^ sender, System::EventAr
 
 			if (amount > 0)
 			{
-				int id = safe_cast<int>(dataGrid->Rows[i]->Tag);
-				String^ name =
-					dataGrid->Rows[i]->Cells["name"]->Value->ToString();
-				double rowPrice = Convert::ToDouble(
-					dataGrid->Rows[i]->Cells["total_price"]->Value);
-
 				sw->Write(
-					id + "|" +
-					name + "|" +
+					dataGrid->Rows[i]->Tag + "|" +
+					dataGrid->Rows[i]->Cells["name"]->Value + "|" +
 					amount + "|" +
-					rowPrice + "|"
+					dataGrid->Rows[i]->Cells["total_price"]->Value + "|"
 				);
 
 				totalAmount += amount;
-				totalPrice += rowPrice;
+				totalPrice += Convert::ToDouble(
+					dataGrid->Rows[i]->Cells["total_price"]->Value);
 			}
 		}
 
 		sw->WriteLine(totalAmount + "|" + totalPrice);
 		sw->Close();
 
-		MessageBox::Show(
-			"Заказ успешно сохранён!",
-			"Успех",
-			MessageBoxButtons::OK,
-			MessageBoxIcon::Information
-		);
-
+		MessageBox::Show("Заказ успешно сохранён", "OK");
 		reset_button_Click(sender, e);
 	}
 	catch (Exception^ ex)
 	{
-		MessageBox::Show(
-			"Ошибка при сохранении заказа:\n" + ex->Message,
-			"Ошибка",
-			MessageBoxButtons::OK,
-			MessageBoxIcon::Error
-		);
+		MessageBox::Show(ex->Message, "Ошибка");
 	}
-
-	//Sending File
-	SendToServer::SendFileToServer();
 }
 private: System::Void extras_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
