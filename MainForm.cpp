@@ -1,19 +1,20 @@
-﻿#include "MainForm.h"
+﻿#include <Windows.h>  // обязательно для WinMain и WINAPI
+#include "MainForm.h"
 #include "ShowOrders.h"
 #include "OrderForm.h"
 #include "MenuForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
-using namespace ChinarDesktop;
 
 [STAThread]
-int main(array<String^>^ args)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
 
-    Application::Run(gcnew MainForm());
+    ChinarDesktop::MainForm^ form = gcnew ChinarDesktop::MainForm();
+    Application::Run(form);
 
     return 0;
 }
